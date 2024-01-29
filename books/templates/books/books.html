@@ -36,8 +36,8 @@
             <td>{{ book.publisher }}</td>
             <td>{{ book.pages }}</td>
             <td>{{ book.get_format_display }}</td>
-            <td><a href="{% url "update-book" book.slug %}">Editar</a></td>
-            <td><a href="{% url "books" %}">Remover</a></td>
+            <td><a href="{% url "update-book" book.id %}">Editar</a></td>
+            <td><a href="{% url "delete-book" book.id %}">Remover</a></td>
         </tr>
         {% endfor %}
     </table>

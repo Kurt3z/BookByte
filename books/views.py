@@ -27,3 +27,16 @@ def updateBook(request, slug):
         "form": form
     }
     return render(request, "books/book-form.html", context)
+
+
+def deleteBook(request, pk):
+    book = Book.objects.get(id=pk)
+
+    if request.method == "POST":
+        book.delete()
+        return redirect("books")
+
+    context = {
+        "book": book
+    }
+    return render(request, "books/delete-book.html", context)
