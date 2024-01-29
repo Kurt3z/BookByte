@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livros</title>
+    <style>
+        table, tr, th, td {
+            border: 2px solid black;
+        }
+        tr, th, td {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Todos os Livros</h1>
+    
+    <table>
+        <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Quantidade</th>
+            <th>Editora</th>
+            <th>Páginas</th>
+            <th>Formato</th>
+            <th>Editar</th>
+            <th>Remover</th>
+            <th><a href="{% url "books" %}">Adicionar Livro</a></th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author.first }}</td>
+            <td>{{ book.quantity }}</td>
+            <td>{{ book.publisher }}</td>
+            <td>{{ book.pages }}</td>
+            <td>{{ book.get_format_display }}</td>
+            <td><a href="{% url "update-book" book.slug %}">Editar</a></td>
+            <td><a href="{% url "books" %}">Remover</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+</body>
+</html>

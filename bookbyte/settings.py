@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 
     "models.apps.ModelsConfig",
+    "books.apps.BooksConfig",
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,7 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+MEDIA_ROOT = BASE_DIR / "uploads"
+
+MEDIA_URL = "/user-media/"
