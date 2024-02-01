@@ -1,0 +1,82 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{% static "staff/books-dashboard.css" %}">
+
+</head>
+<body>
+
+    <main>
+
+        <header>
+            <div>
+                <h1>Livros</h1>
+                <a href="{% url "add-book" %}">Adicionar Livro</a>
+            </div>
+            <p>Search...</p>
+        </header>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Data de Criação</th>
+                <th>Capa</th>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Data de Publicação</th>
+                <th>ISBN</th>
+                <th>Páginas</th>
+                <th>Formato</th>
+                <th>Quantidade</th>
+                <th>Sinopse</th>
+                <th>Slug</th>
+                <th>Editora</th>
+                <th>Géneros</th>
+                <th>Linguagem</th>
+                <th></th>
+                <th></th>
+            </tr>
+            {% for book in books %}
+            <tr>
+                <td>{{book.id|truncatechars:15 }}</td>
+                <td>{{book.created|date:"F j, Y"}}</td>
+                <td>
+                    <img src="{{ book.cover.url }}" alt="">
+                </td>
+                <td>{{book.title}}</td>
+                <td>
+                    {% for author in book.author.all %}
+                    <span>{{author}}</span>
+                    {% endfor %}
+                </td>
+                <td>{{book.publication_date|date:"F j, Y"}}</td>
+                <td>{{book.isbn}}</td>
+                <td>{{book.pages}}</td>
+                <td>{{ book.get_format_display }}</td>
+                <td>{{ book.quantity }}</td>
+                <td>...</td>
+                <td>{{ book.slug }}</td>
+                <td>{{ book.publisher }}</td>
+                <td>
+                    {% for genre in book.genre.all %}
+                    <span>{{ genre }}</span>
+                    <hr>
+                    {% endfor %}
+                </td>
+                <td>{{ book.language }}</td>
+                <td><a href="{% url "update-book" book.id %}">Editar</a></td>
+                <td><a href="{% url "delete-book" book.id %}">Eliminar</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </main>
+    
+</body>
+</html>

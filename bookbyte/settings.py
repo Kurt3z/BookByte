@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     "models.apps.ModelsConfig",
     "books.apps.BooksConfig",
+    "staff.apps.StaffConfig",
 ]
 
 MIDDLEWARE = [

@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 
 from .models import Book
-from .forms import BookForm
 
 
 def books(request):
@@ -11,32 +10,3 @@ def books(request):
     }
 
     return render(request, "books/books.html", context)
-
-
-def updateBook(request, slug):
-    book = Book.objects.get(slug=slug)
-    form = BookForm(instance=book)
-
-    if request.method == "POST":
-        form = BookForm(request.POST, request.FILES, instance=book)
-        if form.is_valid():
-            form.save()
-            return redirect("books")
-
-    context = {
-        "form": form
-    }
-    return render(request, "books/book-form.html", context)
-
-
-def deleteBook(request, pk):
-    book = Book.objects.get(id=pk)
-
-    if request.method == "POST":
-        book.delete()
-        return redirect("books")
-
-    context = {
-        "book": book
-    }
-    return render(request, "books/delete-book.html", context)
