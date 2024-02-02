@@ -30,7 +30,7 @@ main form {
   border: 5px solid #0c8599;
   border-radius: 10px;
   padding: 32px;
-  width: 35vw;
+  width: 45vw;
   margin: 0 auto;
 }
 
@@ -41,8 +41,8 @@ main form label {
   color: #0c8599;
 }
 
-body > main > form > label:nth-child(4),
-body > main > form > label:nth-child(7) {
+body>main>form>label:nth-child(4),
+body>main>form>label:nth-child(7) {
   margin-bottom: 0;
 }
 

@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{% static "staff/dashboard.css" %}">
+
+</head>
+<body>
+
+    <main>
+        <header>
+            <div>
+                <h1>Autores</h1>
+                <a href="{% url "add-author" %}" id="add-btn">Adicionar Autor</a>
+            </div>
+            <p>Search...</p>
+        </header>
+
+        <table>
+            <tr>
+                <th>Foto</th>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>País</th>
+                <th>Biografia</th>
+                <th>Website Pessoal</th>
+                <th></th>
+                <th></th>
+            </tr>
+            {% for author in authors %}
+            <tr>
+                <td>
+                    <img src="{{ author.picture.url }}" alt="">
+                </td>
+                <td>{{author}}</td>
+                <td>{{author.birthdate|date:"F j, Y"}}</td>
+                <td>{{author.country}}</td>
+                <td>...</td>
+                <td>{{ author.personal_website }}</td>
+                <td><a href="{% url "update-author" author.id %}">Editar</a></td>
+                <td><a href="{% url "delete-author" author.id %}">Eliminar</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </main>
+</body>
+</html>

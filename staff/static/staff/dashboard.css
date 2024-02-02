@@ -23,14 +23,15 @@ header {
   margin-bottom: 32px;
 }
 
-header > div {
+header>div {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
 }
 
-#add-book {
+#add-btn:link,
+#add-btn:visited {
   padding: 8px 12px;
   background-color: #f35b04;
   border-radius: 5px;
@@ -39,8 +40,13 @@ header > div {
   font-weight: 500;
 }
 
-#add-book:hover {
+#add-btn:hover,
+#add-btn:active {
   background-color: #f57c36;
+}
+
+table {
+  min-width: 100%;
 }
 
 table tr:first-of-type {
@@ -65,7 +71,7 @@ td {
   font-size: 12px;
 }
 
-td > img {
+td>img {
   height: 80px;
   object-fit: cover;
 }

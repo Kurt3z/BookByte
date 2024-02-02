@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from django import forms
 
-from .models import Book
+from .models import Book, Author
 
 
 class BookForm(ModelForm):
@@ -28,4 +28,25 @@ class BookForm(ModelForm):
 
         widgets = {
             'publication_date': forms.DateInput(attrs={'type': 'date'}),
+        }
+
+
+class AuthorForm(ModelForm):
+    class Meta:
+        model = Author
+        fields = ["first_name", "last_name", "birthdate",
+                  "country", "biography", "personal_website", "picture"]
+
+        labels = {
+            "first_name": "Nome",
+            "last_name": "Apelido",
+            "birthdate": "Data de Nascimento",
+            "country": "Nacionalidade",
+            "biography": "Biografia",
+            "personal_website": "Website Pessoal",
+            "picture": "Foto"
+        }
+
+        widgets = {
+            'birthdate': forms.DateInput(attrs={'type': 'date'}),
         }
