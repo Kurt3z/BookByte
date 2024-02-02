@@ -13,7 +13,18 @@
     <main>
         <form method="post" action="" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form }}  
+            {% for field in form %}
+            {% if field.label == "Autor" or field.label == "Géneros" %}
+            <label for="">{{field.label}}</label>
+            <p>Para selecionar uma ou várias opções utilize a tecla CTRL</p>
+            {{field}}
+            
+            {% else %}
+            <label for="">{{field.label}}</label>
+            {{field}}
+
+            {% endif %}
+            {% endfor %}
             <button type="submit">Criar</button>
         </form>
     </main>

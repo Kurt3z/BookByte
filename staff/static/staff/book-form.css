@@ -41,8 +41,8 @@ main form label {
   color: #0c8599;
 }
 
-main form label[for='author'],
-main form label[for='genre'] {
+body > main > form > label:nth-child(4),
+body > main > form > label:nth-child(7) {
   margin-bottom: 0;
 }
 
