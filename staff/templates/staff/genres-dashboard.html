@@ -12,6 +12,12 @@
 {% block content %}
 <main>
     <header>
+        <a href="{{request.META.HTTP_REFERER|escape}}">
+            <div class="btn-back">
+                <img src="{% static "staff/images/icons/arrow-left.svg" %}" alt="">
+            </div>
+        </a>
+        
         <div>
             <h1>
                 <img src="{% static "staff/images/icons/option.svg" %}" alt="">

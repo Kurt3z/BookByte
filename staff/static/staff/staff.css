@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #343a40;
+  font-family: 'Inter', sans-serif;
+  height: 100vh;
+  display: flex;
+}
+
+h1,
+h2 {
+  font-family: 'Merriweather', sans-serif;
+}
+
+a:link,
+a:visited {
+  color: #f1f3f5;
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  text-decoration: underline;
+}
+
+body > * {
+  height: 100%;
+}
+
+/* NAVIGATION */
+
+body nav {
+  position: relative;
+  padding: 24px;
+  background-color: #0b788a;
+  color: #f1f3f5;
+  border-right: 2px solid #343a40;
+}
+
+body nav h1 {
+  font-family: 'Merriweather', sans-serif;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+body nav ul {
+  list-style: none;
+  padding: 16px;
+}
+
+body nav ul li {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+body nav ul li:last-of-type {
+  margin-bottom: none;
+}
+
+body nav p {
+  position: absolute;
+  bottom: 10px;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* -------------------------- */
+
+body main {
+  flex-grow: 2;
+}
+
+body main header {
+  min-height: 10vh;
+  height: 90px;
+  padding: 24px;
+  box-shadow: 0 1px 10px 0 #343a405d;
+  border-bottom: 2px solid #343a40;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body main header > div {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+body main header img {
+  border-radius: 50%;
+  height: 50px;
+  border: 2px solid #f35b04;
+}
