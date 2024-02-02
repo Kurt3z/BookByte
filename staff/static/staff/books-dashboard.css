@@ -9,11 +9,14 @@
 body {
   width: 100vw;
   font-family: 'Inter', sans-serif;
+  background-color: #f1f3f5;
+  color: #343a40;
 }
 
 main {
   width: 90%;
   margin: 0 auto;
+  margin-top: 32px;
 }
 
 header {
@@ -27,16 +30,22 @@ header > div {
   margin-bottom: 16px;
 }
 
-table {
-  border: 2px solid black;
+table tr:first-of-type {
+  background-color: #0c8599;
+  color: #fff;
 }
 
 th,
 tr,
 td {
   padding: 5px 8px;
-  border: 2px solid black;
   text-align: center;
+}
+
+th {
+  font-weight: 500;
+  font-size: 14px;
+  border: none;
 }
 
 td {
@@ -46,4 +55,8 @@ td {
 td > img {
   height: 80px;
   object-fit: cover;
+}
+
+tr {
+  border: 2px solid #343a40;
 }

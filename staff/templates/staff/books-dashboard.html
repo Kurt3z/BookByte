@@ -13,7 +13,6 @@
 <body>
 
     <main>
-
         <header>
             <div>
                 <h1>Livros</h1>
@@ -24,8 +23,6 @@
 
         <table>
             <tr>
-                <th>ID</th>
-                <th>Data de Criação</th>
                 <th>Capa</th>
                 <th>Título</th>
                 <th>Autor</th>
@@ -44,8 +41,6 @@
             </tr>
             {% for book in books %}
             <tr>
-                <td>{{book.id|truncatechars:15 }}</td>
-                <td>{{book.created|date:"F j, Y"}}</td>
                 <td>
                     <img src="{{ book.cover.url }}" alt="">
                 </td>
@@ -65,8 +60,7 @@
                 <td>{{ book.publisher }}</td>
                 <td>
                     {% for genre in book.genre.all %}
-                    <span>{{ genre }}</span>
-                    <hr>
+                    <span>{{ genre }}</span> <br>
                     {% endfor %}
                 </td>
                 <td>{{ book.language }}</td>
@@ -75,8 +69,6 @@
             </tr>
             {% endfor %}
         </table>
-
     </main>
-    
 </body>
 </html>
