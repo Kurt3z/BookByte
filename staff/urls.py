@@ -16,4 +16,15 @@ urlpatterns = [
          views.updateAuthor, name="update-author"),
     path("book-dashboard/delete-author/<str:pk>/",
          views.deleteAuthor, name="delete-author"),
+
+    path("publisher-dashboard/", views.publishersDashboard,
+         name="publishers-dashboard"),
+    path("publisher-dashboard/add-publisher", views.addPublisher,
+         name="add-publisher"),
+    path("publisher-dashboard/update-publisher/<str:pk>/",
+         views.updatePublisher, name="update-publisher"),
+    path("publisher-dashboard/delete-publisher/<str:pk>/",
+         views.deletePublisher, name="delete-publisher"),
+
+
 ]

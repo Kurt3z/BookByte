@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar {{page}}</title>
+    <title>{{type}} {{page}}</title>
 
     <link rel="stylesheet" href="{% static "staff/form.css" %}">
 </head>
@@ -25,7 +25,7 @@
 
             {% endif %}
             {% endfor %}
-            <button type="submit">Criar</button>
+            <button type="submit">{{type}}</button>
         </form>
     </main>
 </body>
