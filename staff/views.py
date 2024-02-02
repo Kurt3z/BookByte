@@ -32,6 +32,8 @@ def publishersDashboard(request):
 
     return render(request, "staff/publisher-dashboard.html", context)
 
+# Do the same dashboard for every model
+
 
 # BOOKS CRUD
 
@@ -185,3 +187,5 @@ def deletePublisher(request, pk):
     }
 
     return render(request, "staff/delete.html", context)
+
+# GENRES CRUD

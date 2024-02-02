@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <main>
+        <header>
+            <div>
+                <h1>Géneros</h1>
+                <a href="{% url "add-genre" %}" id="add-btn">Adicionar Género</a>
+            </div>
+            <p>Search...</p>
+        </header>
+        <table>
+            <tr>
+                <th>Criado a:</th>
+                <th>Género</th>
+                <th></th>
+                <th></th>
+            </tr>
+            
+        </table>
+
+    </main>
+    
+</body>
+</html>
