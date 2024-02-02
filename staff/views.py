@@ -6,6 +6,10 @@ from models.models import Publisher, Genre
 from models.forms import PublisherForm, GenreForm
 
 
+def staffIndex(request):
+    return render(request, "staff/staff.html")
+
+
 def booksDashboard(request):
     books = Book.objects.all()
     context = {

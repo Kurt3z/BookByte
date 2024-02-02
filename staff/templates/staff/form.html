@@ -10,16 +10,22 @@
 {% block content %}
 <main>
     <form method="post" action="" enctype="multipart/form-data">
+        <a href="{{request.META.HTTP_REFERER|escape}}">
+            <div class="btn-back">
+                <img src="{% static "staff/images/icons/arrow-left.svg" %}" alt="">
+            </div>
+        </a>
+
         {% csrf_token %}
         {% for field in form %}
         {% if field.label == "Autor"%}
-        <label for="">{{field.label}}</label>
+        <label for="" class="margin-zero">{{field.label}}</label>
         <p>Para selecionar uma ou várias opções utilize a tecla CTRL</p>
         {{field}}
         <a href="{% url "add-author" %}" class="btn-create">Criar Autor</a>
 
         {% elif  field.label == "Géneros"  %}
-        <label for="">{{field.label}}</label>
+        <label for="" class="margin-zero">{{field.label}}</label>
         <p>Para selecionar uma ou várias opções utilize a tecla CTRL</p>
         {{field}}
         <a href="{% url "add-genre" %}" class ="btn-create">Criar Género</a>

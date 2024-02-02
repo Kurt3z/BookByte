@@ -3,6 +3,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path("", views.staffIndex, name="staff-index"),
+
+
     path("books-dashboard/", views.booksDashboard, name="books-dashboard"),
     path("books-dashboard/add-book/", views.addBook, name="add-book"),
     path("books-dashboard/update-book/<str:pk>/",
@@ -33,6 +36,4 @@ urlpatterns = [
          views.updateGenre, name="update-genre"),
     path("genres-dashboard/delete-genre/<str:pk>/",
          views.deleteGenre, name="delete-genre"),
-
-
 ]

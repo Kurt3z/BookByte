@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+
+{% block title %}Staff{% endblock title %}
+
+
+{% block content %}
+<ul>
+    <li><a href="{% url "books-dashboard" %}">Livros</a></li>
+    <li><a href="{% url "authors-dashboard" %}">Autores</a></li>
+    <li><a href="{% url "publishers-dashboard" %}">Editoras</a></li>
+    <li><a href="{% url "genres-dashboard" %}">Géneros</a></li>
+</ul>
+
+{% endblock content %}

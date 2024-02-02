@@ -41,11 +41,6 @@ main form label {
   color: #0c8599;
 }
 
-body > main > form > label:nth-child(4),
-body > main > form > label:nth-child(7) {
-  margin-bottom: 0;
-}
-
 main form p {
   font-size: 12px;
   margin-bottom: 12px;
@@ -122,4 +117,23 @@ button[type='submit']:hover {
 .btn-create:hover,
 .btn-create:active {
   background-color: #f57c36;
+}
+
+.margin-zero {
+  margin-bottom: 0;
+}
+
+.btn-back {
+  background-color: #66d9e8;
+  border: 2px solid #0b7285;
+  padding: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  margin-bottom: 24px;
+}
+
+.btn-back:hover {
+  background-color: #99e9f2;
 }
