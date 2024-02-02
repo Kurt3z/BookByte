@@ -12,16 +12,30 @@
     <form method="post" action="" enctype="multipart/form-data">
         {% csrf_token %}
         {% for field in form %}
-        {% if field.label == "Autor" or field.label == "Géneros" %}
+        {% if field.label == "Autor"%}
         <label for="">{{field.label}}</label>
         <p>Para selecionar uma ou várias opções utilize a tecla CTRL</p>
         {{field}}
+        <a href="{% url "add-author" %}" class="btn-create">Criar Autor</a>
+
+        {% elif  field.label == "Géneros"  %}
+        <label for="">{{field.label}}</label>
+        <p>Para selecionar uma ou várias opções utilize a tecla CTRL</p>
+        {{field}}
+        <a href="{% url "add-genre" %}" class ="btn-create">Criar Género</a>
+
+        {% elif field.label == "Editora" %}
+        <label for="">{{field.label}}</label>
+        {{field}}
+        <a href="{% url "add-publisher" %}" class ="btn-create">Criar Editora</a>
+
         
         {% else %}
         <label for="">{{field.label}}</label>
         {{field}}
 
         {% endif %}
+
         {% endfor %}
         <button type="submit">{{type}}</button>
     </form>

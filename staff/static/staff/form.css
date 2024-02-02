@@ -41,8 +41,8 @@ main form label {
   color: #0c8599;
 }
 
-body>main>form>label:nth-child(4),
-body>main>form>label:nth-child(7) {
+body > main > form > label:nth-child(4),
+body > main > form > label:nth-child(7) {
   margin-bottom: 0;
 }
 
@@ -69,7 +69,7 @@ main form select {
   padding: 16px;
   border-radius: 2px;
   border: 2px solid #343a40;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 
 main form select:focus {
@@ -104,4 +104,22 @@ button[type='submit'] {
 
 button[type='submit']:hover {
   background-color: #15aabf;
+}
+
+.btn-create:link,
+.btn-create:visited {
+  display: block;
+  width: fit-content;
+  margin-bottom: 48px;
+  padding: 8px 12px;
+  background-color: #f35b04;
+  border-radius: 5px;
+  color: #f1f3f5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.btn-create:hover,
+.btn-create:active {
+  background-color: #f57c36;
 }

@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 
 from books.models import Book, Author
 from books.forms import BookForm, AuthorForm
-from models.models import Publisher
-from models.forms import PublisherForm
+from models.models import Publisher, Genre
+from models.forms import PublisherForm, GenreForm
 
 
 def booksDashboard(request):
@@ -30,9 +30,16 @@ def publishersDashboard(request):
         "publishers": publishers
     }
 
-    return render(request, "staff/publisher-dashboard.html", context)
+    return render(request, "staff/publishers-dashboard.html", context)
 
-# Do the same dashboard for every model
+
+def genresDashboard(request):
+    genres = Genre.objects.all()
+    context = {
+        "genres": genres
+    }
+
+    return render(request, "staff/genres-dashboard.html", context)
 
 
 # BOOKS CRUD
@@ -189,3 +196,53 @@ def deletePublisher(request, pk):
     return render(request, "staff/delete.html", context)
 
 # GENRES CRUD
+
+
+def addGenre(request):
+    form = GenreForm()
+
+    if request.method == "POST":
+        form = GenreForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect("genres-dashboard")
+
+    context = {
+        "form": form,
+        "page": "Género",
+        "type": "Criar"
+    }
+
+    return render(request, "staff/form.html", context)
+
+
+def updateGenre(request, pk):
+    genre = Genre.objects.get(id=pk)
+    form = GenreForm(instance=genre)
+
+    if request.method == "POST":
+        form = GenreForm(request.POST, request.FILES, instance=genre)
+        if form.is_valid():
+            form.save()
+            return redirect("genres-dashboard")
+
+    context = {
+        "form": form,
+        "type": "Editar"
+    }
+
+    return render(request, "staff/form.html", context)
+
+
+def deleteGenre(request, pk):
+    genre = Genre.objects.get(id=pk)
+
+    if request.method == "POST":
+        genre.delete()
+        return redirect("genres-dashboard")
+
+    context = {
+        "object": genre
+    }
+
+    return render(request, "staff/delete.html", context)

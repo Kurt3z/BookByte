@@ -27,7 +27,15 @@
             <th>Género</th>
             <th></th>
             <th></th>
-        </tr>        
+        </tr>    
+        {% for genre in genres %}
+        <tr>
+            <td>{{genre.created}}</td>
+            <td>{{genre.caption}}</td>
+            <td></td>
+            <td></td>
+        </tr>
+        {% endfor %}    
     </table>
 </main>
 {% endblock content %}
