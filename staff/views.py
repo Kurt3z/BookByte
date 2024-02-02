@@ -19,8 +19,9 @@ def addBook(request):
     if request.method == "POST":
         form = BookForm(request.POST, request.FILES)
         if form.is_valid():
-            book = form.save(commit=False)
-            book.save()
+            # book = form.save(commit=False)
+            # book.title = book.title.title()
+            form.save()
             return redirect("books-dashboard")
 
     context = {
