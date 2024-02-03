@@ -7,6 +7,7 @@ class Country(models.Model):
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
     name = models.CharField(max_length=100, unique=True)
     code = models.CharField(max_length=5, unique=True)
+    flag = models.ImageField(upload_to="flags/", null=True)
 
     class Meta:
         verbose_name_plural = "Countries"

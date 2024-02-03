@@ -1,0 +1,95 @@
+nav {
+  margin: 0;
+  border-bottom: 1px solid #e9ecef;
+  box-shadow: 0 1px 5px 0 #343a400a;
+}
+
+/* ------ */
+/*  MAIN  */
+/* ------ */
+
+main {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 3fr 1fr;
+  gap: 32px;
+}
+
+main .column--1 {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+main .column--1 img {
+  width: 95%;
+  height: 75%;
+  object-fit: cover;
+  border-bottom-right-radius: 50px;
+}
+
+main .column--1 > div {
+  padding: 0 32px;
+}
+
+main .column--1 > div > p:first-of-type {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #868e96;
+  margin-bottom: 12px;
+}
+
+#publication-date {
+  font-family: 'Merriweather', serif;
+  font-size: 30px;
+  color: #0c8599;
+}
+
+main .column--2 {
+  position: relative;
+  padding: 32px 0;
+}
+
+main .column--2 .header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+main .column--2 .header h2 {
+  font-size: 36px;
+  align-self: center;
+}
+
+main .column--2 p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #868e96;
+  margin-bottom: 48px;
+}
+
+main .column--2 ul {
+  width: 85%;
+  list-style: none;
+  color: #868e96;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 32px;
+  row-gap: 24px;
+  margin-bottom: 32px;
+}
+
+main .column--2 ul li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+main .column--2 ul strong {
+  color: #343a40;
+}
+
+#flag {
+  height: 15px;
+}

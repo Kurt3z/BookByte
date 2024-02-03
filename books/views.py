@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from .models import Book
+from .models import Book, Author
 
 
 def books(request):
@@ -19,3 +19,12 @@ def book(request, slug):
     }
 
     return render(request, "books/book-detail.html", context)
+
+
+def author(request, slug):
+    author = Author.objects.get(slug=slug)
+    context = {
+        "author": author
+    }
+
+    return render(request, "books/author-detail.html", context)

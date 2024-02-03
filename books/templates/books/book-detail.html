@@ -4,6 +4,7 @@
 {% block title %}{{ book.title }}{% endblock title %}
 
 {% block styles %}
+<link rel="stylesheet" href="{% static "books/detail.css" %}">
 <link rel="stylesheet" href="{% static "books/book-detail.css" %}">
 {% endblock styles %}
 
@@ -38,7 +39,8 @@
             </li>
             <li>
               <img src="{% static "icons/check-circle-24px-teal.svg" %}" alt="" />
-              Idioma: <strong>{{book.language}}</strong>
+              <span>Idioma: </span>
+              <img src="{{book.language.flag.url}}" alt="" id="flag" />
             </li>
             <li>
               <img src="{% static "icons/check-circle-24px-teal.svg" %}" alt="" />
@@ -66,7 +68,7 @@
                 <p>
                     {{author.biography|truncatechars:250}}
                 </p>
-                <a href="#">Saber mais</a>
+                <a href="{% url "author" author.slug %}">Saber mais</a>
             </div>
             <div class="author-picture">
                 <img src="{{author.picture.url}}" alt="" />
