@@ -1,0 +1,82 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block title %}{{ book.title }}{% endblock title %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "books/book-detail.css" %}">
+{% endblock styles %}
+
+{% block content %}
+{% include "navbar.html" %}
+
+<main>
+    <section class="column--1">
+        <img src="{{ book.cover.url }}" alt="{{ book.title }} Capa" />
+        <div>
+          <p>Primeira publicação</p>
+          <p id="publication-date">{{ book.publication_date|date:"d F Y"}}</p>
+        </div>
+    </section>
+
+    <section class="column--2">
+        <div class="header">
+            <img src="{% static "icons/book-open-36px-teal.svg" %}" alt="Ícone livro" />
+            <h2>{{ book.title }}</h2>
+        </div>
+        <p>
+            {{book.summary}}
+        </p>
+        <ul>
+            <li>
+              <img src="{% static "icons/check-circle-24px-teal.svg" %}" alt="" />
+              Editora: <strong>{{book.publisher}}</strong>
+            </li>
+            <li>
+              <img src="{% static "icons/check-circle-24px-teal.svg" %}" alt="" />
+              ISBN: <strong>{{book.isbn}}</strong>
+            </li>
+            <li>
+              <img src="{% static "icons/check-circle-24px-teal.svg" %}" alt="" />
+              Idioma: <strong>{{book.language}}</strong>
+            </li>
+            <li>
+              <img src="{% static "icons/check-circle-24px-teal.svg" %}" alt="" />
+              Encadernação: <strong>{{book.get_format_display}}</strong>
+            </li>
+            <li>
+              <img src="{% static "icons/check-circle-24px-teal.svg" %}" alt="" />
+              Páginas: <strong>{{book.pages}}</strong>
+            </li>
+            <li>
+              <img src="{% static "icons/check-circle-24px-teal.svg" %}" alt="" />
+              Quantidade: <strong>{{book.quantity}}</strong>
+            </li>
+        </ul>
+        <a href="#">
+            <a href="#" class="btn btn--medium" id="btn-basket"><span>Adicionar</span></a>
+        </a>
+
+        {% for author in book.author.all %}
+        <section class="author-section">
+            <div class="author-description">
+                <p class="heading">Nome:</p>
+                <h2>{{author}}</h2>
+                <p class="heading">Sobre o autor:</p>
+                <p>
+                    {{author.biography|truncatechars:250}}
+                </p>
+                <a href="#">Saber mais</a>
+            </div>
+            <div class="author-picture">
+                <img src="{{author.picture.url}}" alt="" />
+            </div>
+        </section>           
+        {% endfor %}
+    </section>
+
+    <section class="column--3"></section>
+</main>
+
+{% include "footer.html" %}
+{% endblock content %}

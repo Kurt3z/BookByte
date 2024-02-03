@@ -10,3 +10,12 @@ def books(request):
     }
 
     return render(request, "books/books.html", context)
+
+
+def book(request, slug):
+    book = Book.objects.get(slug=slug)
+    context = {
+        "book": book
+    }
+
+    return render(request, "books/book-detail.html", context)
