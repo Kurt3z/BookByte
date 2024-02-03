@@ -38,8 +38,8 @@
         <tr>
             <td>{{genre.created}}</td>
             <td>{{genre.caption}}</td>
-            <td></td>
-            <td></td>
+            <td><a href="{% url "update-genre" genre.id %}">Editar</a></td>
+            <td><a href="{% url "delete-genre" genre.id %}">Eliminar</a></td>
         </tr>
         {% endfor %}    
     </table>
