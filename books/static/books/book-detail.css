@@ -54,7 +54,7 @@ main .column--2 .author-section .author-picture {
 
 main .column--2 .author-section .author-picture img {
   border-top: 5px solid #f35b04;
-  height: 250px;
+  height: 300px;
   border-bottom-left-radius: 150px;
   border-bottom-right-radius: 150px;
 }

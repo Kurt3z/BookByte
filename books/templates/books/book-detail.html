@@ -31,7 +31,7 @@
         <ul>
             <li>
               <img src="{% static "icons/check-circle-24px-teal.svg" %}" alt="" />
-              Editora: <strong>{{book.publisher}}</strong>
+              Editora: <a href="{{book.publisher.website}}"><strong>{{book.publisher}}</strong></a>
             </li>
             <li>
               <img src="{% static "icons/check-circle-24px-teal.svg" %}" alt="" />

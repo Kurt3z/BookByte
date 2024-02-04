@@ -1,12 +1,17 @@
 from django.shortcuts import render, redirect
 
 from .models import Book, Author
+from .filters import BookFilter
 
 
 def books(request):
     books = Book.objects.all()
+    myFilter = BookFilter(request.GET, queryset=books)
+    books = myFilter.qs
+
     context = {
-        "books": books
+        "books": books,
+        "myFilter": myFilter,
     }
 
     return render(request, "books/books.html", context)
