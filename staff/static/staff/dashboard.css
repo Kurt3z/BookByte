@@ -79,6 +79,7 @@ td {
 
 td > img {
   height: 80px;
+  width: 60px;
   border: 1px solid #f35b04;
   border-radius: 5px;
   object-fit: cover;

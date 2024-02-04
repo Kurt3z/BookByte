@@ -1,0 +1,57 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block title %}Livros{% endblock title %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "books/books.css" %}">
+{% endblock styles %}
+
+{% block content %}
+{% include "navbar.html" %}
+
+<header>
+    <h2>Livros</h2>
+    <form action="">
+      <input type="text" name="search" id="search" placeholder="Pesquisar..." />
+      <button type="submit" class="btn btn--medium">Pesquisar</button>
+    </form>
+</header>
+
+<main>
+    <ul class="products">
+        {% for book in books %}
+        <div class="product--card">
+            <a href="{% url "book" book.slug %}" class="product--link">
+              <img src="{{book.cover.url}}" alt="" />
+              <ul class="product--description">
+                <li>
+                  <i class="ph ph-book"></i>
+                  <span class="title">{{book.title}}</span>
+                </li>
+                <li>
+                  <i class="ph ph-user"></i>
+                  {% for author in book.author.all %}
+                  <span>{{author}}</span>
+                  {% endfor %}
+                </li>
+                <li>
+                  <i class="ph ph-file"></i>
+                  <span>{{book.pages}} páginas</span>
+                </li>
+                <li>
+                  <i class="ph ph-buildings"></i>
+                  <span>{{book.publisher}}</span>
+                </li>
+                <li>
+                  <img src="{{book.language.flag.url}}" alt="" class="flag" />
+                </li>
+              </ul>
+              <a href="#" class="btn btn--small">Adicionar</a>
+            </a>
+        </div>
+        {% endfor %}
+    </ul>
+</main>
+{% include "footer.html" %}
+{% endblock content %}
