@@ -9,5 +9,8 @@ class Publisher(models.Model):
     email = models.EmailField(blank=True, null=True)
     website = models.URLField()
 
+    class Meta:
+        ordering = ["-created"]
+
     def __str__(self):
         return self.name

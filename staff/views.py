@@ -39,8 +39,11 @@ def booksDashboard(request):
 
 def authorsDashboard(request):
     authors = Author.objects.all()
+    custom_range, authors = paginateBooks(request, authors, 8)
+
     context = {
-        "authors": authors
+        "authors": authors,
+        "custom_range": custom_range
     }
 
     return render(request, "staff/authors-dashboard.html", context)
@@ -48,8 +51,11 @@ def authorsDashboard(request):
 
 def publishersDashboard(request):
     publishers = Publisher.objects.all()
+    custom_range, publishers = paginateBooks(request, publishers, 8)
+
     context = {
-        "publishers": publishers
+        "publishers": publishers,
+        "custom_range": custom_range
     }
 
     return render(request, "staff/publishers-dashboard.html", context)
@@ -57,8 +63,10 @@ def publishersDashboard(request):
 
 def genresDashboard(request):
     genres = Genre.objects.all()
+    custom_range, genres = paginateBooks(request, genres, 8)
     context = {
-        "genres": genres
+        "genres": genres,
+        "custom_range": custom_range
     }
 
     return render(request, "staff/genres-dashboard.html", context)

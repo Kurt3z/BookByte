@@ -80,27 +80,6 @@
         {% endfor %}
     </table>
 
-    {% if books.has_other_pages %}
-    <div class="pagination">
-        <ul>
-            {% if books.has_previous %}
-            <li><a href="#">&laquo;</a></li>
-            {% endif %}
-
-            {% for page in custom_range %}
-
-            {% if page == books.number %}
-            <li><a href="?page={{page}}" class="active">{{page}}</a></li>
-            {% else %}
-            <a href="?page={{page}}">{{page}}</a>
-            {% endif %}
-            {% endfor %}
-
-            {% if books.has_next %}
-            <a href="?page={{books.next_page_number}}">&raquo;</a>
-            {% endif %}                      
-        </ul>
-    </div>
-    {% endif %}
+    {% include "staff/dashboard-pagination.html" with queryset=books custom_range=custom_range %}
 </main>
 {% endblock content %}

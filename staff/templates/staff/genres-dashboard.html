@@ -45,6 +45,8 @@
         </tr>
         {% endfor %}    
     </table>
+
+    {% include "staff/dashboard-pagination.html" with queryset=genres custom_range=custom_range %}
 </main>
 {% endblock content %}
     

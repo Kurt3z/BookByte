@@ -19,6 +19,9 @@ class Author(models.Model):
     slug = AutoSlugField(populate_from="get_full_name", unique=True,
                          db_index=True, editable=False, null=True)
 
+    class Meta:
+        ordering = ["-created"]
+
     def get_full_name(self):
         return f"{self.first_name} {self.last_name}"
 

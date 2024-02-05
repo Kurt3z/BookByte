@@ -55,5 +55,7 @@
         </tr>
         {% endfor %}
     </table>
+
+    {% include "staff/dashboard-pagination.html" with queryset=publishers custom_range=custom_range %}
 </main>
 {% endblock content %}

@@ -7,5 +7,8 @@ class Genre(models.Model):
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
     caption = models.CharField(max_length=200, unique=True)
 
+    class Meta:
+        ordering = ["-created"]
+
     def __str__(self):
         return self.caption
