@@ -4,12 +4,14 @@
 {% block title %}Dashboard{% endblock title %}
 
 {% block styles %}
-
+<link rel="stylesheet" href="{% static "staff/navigation.css" %}">
 <link rel="stylesheet" href="{% static "staff/content-dashboard.css" %}">
 
 {% endblock styles %}
 
 {% block content %}
+{% include "staff/navigation.html" %}
+
 <main>
     <header>
         <a href="{{request.META.HTTP_REFERER|escape}}">

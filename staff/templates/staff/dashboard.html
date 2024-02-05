@@ -10,7 +10,23 @@
 {% block content %}
 <header class="header"></header>
 
-<section class="sidebar"></section>
+<section class="sidebar">
+    <div class="section-1">
+        <h1><span>B</span>ook<span>B</span>yte</h1>
+
+        <ul>
+            <li><a href="{% url "books-dashboard" %}">Livros</a></li>
+            <li><a href="{% url "authors-dashboard" %}">Autores</a></li>
+            <li><a href="#">Filmes</a></li>
+            <li><a href="#">Diretores</a></li>
+            <li><a href="{% url "publishers-dashboard" %}">Editoras</a></li>
+            <li><a href="{% url "genres-dashboard" %}">Géneros</a></li>
+            <li><a href="#">Requisições</a></li>
+        </ul>
+    </div>
+
+    <p>2024 &copy; BookByte</p>
+</section>
 
 <main class="main"></main>
 

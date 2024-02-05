@@ -1,0 +1,31 @@
+.navigation {
+  width: 100vw;
+  background-color: #0c8599;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+}
+
+.navigation ul {
+  margin: 0 auto;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.navigation ul li {
+  margin-right: 32px;
+}
+
+.navigation ul li:last-of-type {
+  margin-right: 0;
+}
+
+.navigation ul li a:link,
+.navigation ul li a:visited {
+  color: #fff;
+}
+
+.navigation ul li a:hover,
+.navigation ul li a:active {
+  text-decoration: underline;
+}
