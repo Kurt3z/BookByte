@@ -17,87 +17,10 @@ header form > * {
 }
 
 /* ------------- */
-/* SEARCH STYLES */
-/* ------------- */
-#id_title_isbn_author {
-  width: 100%;
-  padding: 16px;
-  background-color: #f1f3f5;
-  border: none;
-  border-radius: 10px;
-  margin-bottom: 16px;
-}
-
-#id_title_isbn_author:focus {
-  outline: none;
-  border: 1px solid #0c8599;
-}
-
-.select-filters {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  margin-bottom: 24px;
-}
-
-.select-filters p {
-  margin-bottom: 16px;
-  font-weight: 700;
-}
-
-.select-filters select {
-  padding: 12px;
-}
-
-.select-filters select,
-.select-filters p {
-  font-family: 'Merriweather', serif;
-}
-
-@media (max-width: 640px) {
-  .select-filters {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-left: 16px;
-  }
-}
-
-/* ------------- */
 
 main {
   width: 55%;
   margin: 0 auto;
-}
-
-.btn {
-  font-family: 'Merriweather', serif;
-  background-color: #0c8599;
-  color: #f1f3f5;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  display: inline-block;
-  max-width: fit-content;
-  border: none;
-  cursor: pointer;
-}
-
-.form-btns {
-  display: flex;
-  justify-content: space-between;
-}
-
-#btn-reset:link,
-#btn-reset:visited {
-  display: flex;
-  align-items: center;
-  background-color: #f03e3e;
-  cursor: pointer;
-}
-
-#btn-reset:hover,
-#btn-reset:active {
-  background-color: #fa5252;
 }
 
 /* PRODUCTS GRID */

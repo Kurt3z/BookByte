@@ -5,6 +5,7 @@
 
 {% block styles %}
 <link rel="stylesheet" href="{% static "books/books.css" %}">
+<link rel="stylesheet" href="{% static "books/search-book.css" %}">
 {% endblock styles %}
 
 {% block content %}
@@ -12,28 +13,7 @@
 
 <header>
     <h2>Livros</h2>
-    <form action="" id="search-form">
-      {% for field in myFilter.form %}
-      {% if field.label == "Search" %}
-      {{field}}
-      {% endif %}
-      {% endfor %}
-
-      <div class="select-filters">
-        {% for field in myFilter.form %}
-        {% if field.label != "Search" %}
-        <div class="grid-item">
-          <p>{{field.label}}</p>
-          {{field}}
-        </div>
-        {% endif %}
-        {% endfor %}
-      </div>
-      <div class="form-btns">
-        <button type="submit" class="btn btn--medium" id="btn-search">Pesquisar</button>
-        <a href="{% url "books" %}" class="btn btn--small" id="btn-reset">Limpar</a>
-      </div>
-    </form>
+    {% include "books/search-book.html" with redirect="books"%}
 </header>
 
 <main>

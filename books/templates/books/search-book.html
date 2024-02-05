@@ -1,0 +1,22 @@
+<form action="" id="search-form">
+    {% for field in myFilter.form %}
+    {% if field.label == "Search" %}
+    {{field}}
+    {% endif %}
+    {% endfor %}
+
+    <div class="select-filters">
+      {% for field in myFilter.form %}
+      {% if field.label != "Search" %}
+      <div class="grid-item">
+        <p>{{field.label}}</p>
+        {{field}}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <div class="form-btns">
+      <button type="submit" class="btn btn--medium" id="btn-search">Pesquisar</button>
+      <a href="{% url redirect %}" class="btn btn--small" id="btn-reset">Limpar</a>
+    </div>
+</form>

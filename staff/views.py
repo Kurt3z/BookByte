@@ -5,6 +5,9 @@ from books.forms import BookForm, AuthorForm
 from models.models import Publisher, Genre
 from models.forms import PublisherForm, GenreForm
 
+from books.filters import BookFilter
+from books.utils import paginateBooks
+
 
 def dashboard(request):
     # total_books = Book.objects.count()
@@ -21,8 +24,14 @@ def dashboard(request):
 
 def booksDashboard(request):
     books = Book.objects.all()
+    myFilter = BookFilter(request.GET, queryset=books)
+    books = myFilter.qs
+    custom_range, books = paginateBooks(request, books, 8)
+
     context = {
-        "books": books
+        "books": books,
+        "myFilter": myFilter,
+        "custom_range": custom_range
     }
 
     return render(request, "staff/books-dashboard.html", context)

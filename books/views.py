@@ -14,7 +14,8 @@ def books(request):
     context = {
         "books": books,
         "myFilter": myFilter,
-        "custom_range": custom_range
+        "custom_range": custom_range,
+        "reset_form_redirect": "books"
     }
 
     return render(request, "books/books.html", context)

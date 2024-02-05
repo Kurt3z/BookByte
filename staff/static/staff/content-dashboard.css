@@ -113,3 +113,30 @@ table a:active {
 .btn-back:hover {
   background-color: #99e9f2;
 }
+
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination ul {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+}
+
+.pagination a:link,
+.pagination a:visited,
+.pagination a:hover,
+.pagination a:active {
+  color: #0c8599;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+#id_title_isbn_author {
+  background-color: #fff;
+}

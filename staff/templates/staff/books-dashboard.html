@@ -5,6 +5,7 @@
 
 {% block styles %}
 <link rel="stylesheet" href="{% static "staff/navigation.css" %}">
+<link rel="stylesheet" href="{% static "books/search-book.css" %}">
 <link rel="stylesheet" href="{% static "staff/content-dashboard.css" %}">
 
 {% endblock styles %}
@@ -27,7 +28,7 @@
             </h1>
             <a href="{% url "add-book" %}" id="add-btn">Adicionar Livro</a>
         </div>
-        <p>Search...</p>
+        {% include "books/search-book.html" with redirect="books-dashboard" %}
     </header>
 
     <table>
@@ -78,5 +79,28 @@
         </tr>
         {% endfor %}
     </table>
+
+    {% if books.has_other_pages %}
+    <div class="pagination">
+        <ul>
+            {% if books.has_previous %}
+            <li><a href="#">&laquo;</a></li>
+            {% endif %}
+
+            {% for page in custom_range %}
+
+            {% if page == books.number %}
+            <li><a href="?page={{page}}" class="active">{{page}}</a></li>
+            {% else %}
+            <a href="?page={{page}}">{{page}}</a>
+            {% endif %}
+            {% endfor %}
+
+            {% if books.has_next %}
+            <a href="?page={{books.next_page_number}}">&raquo;</a>
+            {% endif %}                      
+        </ul>
+    </div>
+    {% endif %}
 </main>
 {% endblock content %}
