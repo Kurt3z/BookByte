@@ -51,7 +51,7 @@
             <td>
                 <img src="{{ book.cover.url }}" alt="">
             </td>
-            <td>{{book.title}}</td>
+            <td><a href="{% url "book" book.slug %}">{{book.title}}</a></td>
             <td>
                 {% for author in book.author.all %}
                 <span>{{author}}</span>

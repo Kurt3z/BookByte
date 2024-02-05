@@ -42,6 +42,10 @@ body nav {
   background-color: #0b788a;
   color: #f1f3f5;
   border-right: 2px solid #343a40;
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 body nav h1 {

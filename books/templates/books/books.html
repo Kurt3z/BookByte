@@ -71,28 +71,7 @@
         {% endfor %}
     </ul>
 
-    {% if books.has_other_pages %}
-    <div class="pagination">
-
-      {% if books.has_previous %}
-      <a href="?page={{books.previous_page_number}}">&laquo;</a>
-      {% endif %}
-
-      {% for page in custom_range %}
-
-      {% if page == books.number %}
-      <a href="?page={{page}}" class="active">{{page}}</a>
-      {% else %}
-      <a href="?page={{page}}">{{page}}</a>
-
-      {% endif %}
-      {% endfor %}
-
-      {% if books.has_next %}
-      <a href="?page={{books.next_page_number}}">&raquo;</a>
-      {% endif %}
-    </div>
-    {% endif %}
+  {% include "pagination.html" with queryset=books custom_range=custom_range%}
 </main>
 {% include "footer.html" %}
 

@@ -19,7 +19,7 @@ header form > * {
 /* ------------- */
 /* SEARCH STYLES */
 /* ------------- */
-#id_title_isbn {
+#id_title_isbn_author {
   width: 100%;
   padding: 16px;
   background-color: #f1f3f5;
@@ -28,7 +28,7 @@ header form > * {
   margin-bottom: 16px;
 }
 
-#id_title_isbn:focus {
+#id_title_isbn_author:focus {
   outline: none;
   border: 1px solid #0c8599;
 }
@@ -114,6 +114,7 @@ main {
   width: 100%;
   height: 320px;
   margin-bottom: 16px;
+  border: 1px solid #343a40;
 }
 
 .product--card i {
