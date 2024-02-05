@@ -7,7 +7,16 @@ from models.forms import PublisherForm, GenreForm
 
 
 def dashboard(request):
-    return render(request, "staff/dashboard.html")
+    # total_books = Book.objects.count()
+    total_books = 0
+    total_movies = 0
+
+    context = {
+        "total_books": total_books,
+        "total_movies": total_movies
+    }
+
+    return render(request, "staff/dashboard.html", context)
 
 
 def booksDashboard(request):

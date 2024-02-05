@@ -11,6 +11,7 @@ body {
   font-family: 'Inter', sans-serif;
   background-color: #f1f3f5;
   color: #343a40;
+  overflow-x: hidden;
 }
 
 main {
@@ -90,12 +91,12 @@ tr {
 
 table a:link,
 table a:visited {
-  color: #343a40;
+  color: #0c8599;
 }
 
 table a:hover,
 table a:active {
-  color: #0c8599;
+  text-decoration: underline;
 }
 
 .btn-back {

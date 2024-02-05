@@ -8,7 +8,14 @@
 {% endblock styles %}
 
 {% block content %}
-<header class="header"></header>
+<header class="header">
+    <h2>Bibliotecário</h2>
+
+    <div class="account-box">
+        <span>Olá, Tiago!</span>
+        <img src="{% static "icons/librarian-default.png" %}" alt="">
+    </div>
+</header>
 
 <section class="sidebar">
     <div class="section-1">
@@ -28,6 +35,36 @@
     <p>2024 &copy; BookByte</p>
 </section>
 
-<main class="main"></main>
+<main class="main">
+    <div class="card">
+        <div class="icon-box">
+            <img src="{% static "icons/book-bold-44px-teal.svg" %}" alt="">
+        </div>
+        <h3>Livros Requisitados</h3>
+        <p>{{total_books}}</p>
+    </div>
+    <div class="card">
+        <div class="icon-box">
+            <img src="{% static "icons/film-reel-44px-teal.svg" %}" alt="">
+        </div>
+        <h3>Filmes Requisitados</h3>
+        <p>{{total_movies}}</p>
+    </div>
+    <div class="card">
+        <div class="icon-box">
+            <img src="{% static "icons/film-reel-44px-teal.svg" %}" alt="">
+        </div>
+        <h3>Géneros mais Populares</h3>
+        <p>Lorem Ipsum</p>
+    </div>
+    <div class="card">
+        <h3>Requisições</h3>
+        <p>Aguardando aprovação</p>
+    </div>
+    <div class="card">
+        <h3>Conteúdo Recente</h3>
+    </div>
+    <div class="card"></div>
+</main>
 
 {% endblock content %}

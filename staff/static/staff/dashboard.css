@@ -3,14 +3,33 @@ body {
 
   display: grid;
   grid-template-columns: 200px 1fr;
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: 80px 1fr;
 }
 
 .header {
   background-color: #0c8599;
+  color: #fff;
+  padding: 16px;
 
   grid-column: 2 / 3;
   grid-row: 1 / 2;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .account-box {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.header .account-box img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #fff;
 }
 
 .sidebar {
@@ -54,8 +73,104 @@ body {
 }
 
 .main {
-  background-color: #fff;
+  background-color: #c3c5ca;
+  padding: 25px;
 
   grid-column: 2 / 3;
   grid-row: 2 / 3;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    'c1 c2 c3'
+    'c4 c4 c5'
+    'c4 c4 c6';
+
+  gap: 20px;
+}
+
+.card {
+  background-color: #f6f7f9;
+  border-radius: 10px;
+}
+
+.card:nth-child(1) {
+  grid-area: c1;
+}
+
+.card:nth-child(2) {
+  grid-area: c2;
+}
+
+.card:nth-child(1),
+.card:nth-child(2),
+.card:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.card:nth-child(1) > .icon-box,
+.card:nth-child(2) > .icon-box,
+.card:nth-child(3) > .icon-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #66d9e8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card:nth-child(1) h3,
+.card:nth-child(2) h3,
+.card:nth-child(3) h3 {
+  font-size: 18px;
+}
+
+.card:nth-child(1) p,
+.card:nth-child(2) p,
+.card:nth-child(3) p {
+  font-size: 44px;
+}
+
+.card:nth-child(3) {
+  grid-area: c3;
+}
+
+.card:nth-child(4) {
+  grid-area: c4;
+  padding: 32px;
+}
+
+.card:nth-child(4) h3 {
+  font-size: 30px;
+}
+
+.card:nth-child(4) p {
+  font-size: 14px;
+  color: #868e96;
+}
+
+.card:nth-child(5) {
+  grid-area: c5;
+}
+
+.card:nth-child(6) {
+  grid-area: c6;
+}
+
+@media (max-width: 925px) {
+  .main {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 200px);
+    grid-template-areas: initial;
+  }
+
+  .card {
+    grid-area: initial !important;
+  }
 }
