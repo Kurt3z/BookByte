@@ -53,6 +53,15 @@ header form > * {
   font-family: 'Merriweather', serif;
 }
 
+@media (max-width: 640px) {
+  .select-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-left: 16px;
+  }
+}
+
 /* ------------- */
 
 main {
@@ -189,4 +198,33 @@ main {
   .products {
     grid-template-columns: 1fr;
   }
+}
+
+/* PAGINATION */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  border-radius: 5px;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+}
+
+.pagination a.active {
+  background-color: #0c8599;
+  color: white;
+  border: 1px solid #0c8599;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
 }

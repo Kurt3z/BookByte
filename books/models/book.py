@@ -13,5 +13,8 @@ class Book(Content):
         "hardcover", "Capa Dura"), ("paperback", "Capa Mole")])
     author = models.ManyToManyField(Author)
 
+    class Meta:
+        ordering = ["-created"]
+
     def __str__(self):
         return self.title
