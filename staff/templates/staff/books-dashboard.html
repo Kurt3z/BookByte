@@ -5,11 +5,12 @@
 
 {% block styles %}
 
-<link rel="stylesheet" href="{% static "staff/dashboard.css" %}">
+<link rel="stylesheet" href="{% static "staff/content-dashboard.css" %}">
 
 {% endblock styles %}
 
 {% block content %}
+
 <main>
     <header>
         <a href="{{request.META.HTTP_REFERER|escape}}">

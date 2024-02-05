@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  font-family: 'Inter', sans-serif;
+  background-color: #f1f3f5;
+  color: #343a40;
+}
+
+main {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 32px;
+}
+
+header {
+  margin-bottom: 32px;
+}
+
+header > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+main header h1 {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+#add-btn:link,
+#add-btn:visited {
+  padding: 8px 12px;
+  background-color: #f35b04;
+  border-radius: 5px;
+  color: #f1f3f5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+#add-btn:hover,
+#add-btn:active {
+  background-color: #f57c36;
+}
+
+table {
+  min-width: 100%;
+}
+
+table tr:first-of-type {
+  background-color: #0c8599;
+  color: #fff;
+}
+
+th,
+tr,
+td {
+  padding: 5px 8px;
+  text-align: center;
+}
+
+th {
+  font-weight: 500;
+  font-size: 14px;
+  border: none;
+}
+
+td {
+  font-size: 12px;
+}
+
+td > img {
+  height: 80px;
+  width: 60px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+tr {
+  border: 2px solid #343a40;
+}
+
+table a:link,
+table a:visited {
+  color: #343a40;
+}
+
+table a:hover,
+table a:active {
+  color: #0c8599;
+}
+
+.btn-back {
+  background-color: #66d9e8;
+  border: 2px solid #0b7285;
+  padding: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  margin-bottom: 24px;
+}
+
+.btn-back:hover {
+  background-color: #99e9f2;
+}

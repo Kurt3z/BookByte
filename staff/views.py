@@ -6,8 +6,8 @@ from models.models import Publisher, Genre
 from models.forms import PublisherForm, GenreForm
 
 
-def staffIndex(request):
-    return render(request, "staff/staff.html")
+def dashboard(request):
+    return render(request, "staff/dashboard.html")
 
 
 def booksDashboard(request):
