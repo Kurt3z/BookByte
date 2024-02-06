@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "models.apps.ModelsConfig",
     "books.apps.BooksConfig",
     "staff.apps.StaffConfig",
+    "accounts.apps.AccountsConfig",
 
     "django_filters",
 ]
@@ -87,6 +88,8 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+AUTH_USER_MODEL = 'accounts.Contact'
 
 
 # Password validation

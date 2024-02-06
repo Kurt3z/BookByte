@@ -1,5 +1,5 @@
 header {
-  width: 65%;
+  width: 55%;
   margin: 0 auto;
 }
 
@@ -12,14 +12,14 @@ header form {
   margin-bottom: 48px;
 }
 
-header form>* {
+header form > * {
   font-family: 'Inter', sans-serif;
 }
 
 /* ------------- */
 
 main {
-  width: 65%;
+  width: 55%;
   margin: 0 auto;
 }
 
