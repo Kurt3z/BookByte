@@ -13,6 +13,9 @@
 </head>
 <body>
     {% block content %}
+    {% for message in messages %}
+    {{message}}
+    {% endfor %}
 
     <script src="{% static "global.js" %}"></script>
     {% endblock content %}

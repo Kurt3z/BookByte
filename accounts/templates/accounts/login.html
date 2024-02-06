@@ -1,0 +1,46 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block title %}
+
+{% if page == "login" %}
+Iniciar Sessão
+
+{% else %}
+Registar
+
+{% endif %}
+
+{% endblock title %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "accounts/login.css" %}">
+{% endblock styles %}
+
+
+{% block content %}
+{% include "navbar.html" %}
+
+<main>
+
+    {% if page == "login" %}
+    <section class="form-section">
+        <h2><span>B</span>ook<span> B</span>yte</h2>
+        <h3>Iniciar Sessão</h3>
+
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" id="username" name="username" required placeholder="Nome de Utilizador">
+            <input type="password" id="password" name="password" required placeholder="Palavra-passe">
+            <a href="#">Esqueceu a sua palavra-passe?</a>
+            <button type="submit">Iniciar Sessão</button>
+        </form>
+
+        <p>Ainda não possui uma conta? <a href="#">Registar</a></p>
+    </section>
+    {% endif %}
+</main>
+
+
+{% include "footer.html" %}
+{% endblock content %}

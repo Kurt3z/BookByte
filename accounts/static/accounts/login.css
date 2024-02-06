@@ -1,0 +1,105 @@
+main {
+  width: 100%;
+  height: 700px;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.form-section {
+  height: 500px;
+  width: 450px;
+  margin-top: 32px;
+  background-color: #f1f3f5;
+  border: 2px solid #0c8599;
+  border-radius: 20px;
+  padding: 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.form-section h2 {
+  font-size: 44px;
+}
+
+.form-section span {
+  font-size: 52px;
+  color: #0c8599;
+}
+
+.form-section h3 {
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 24px;
+}
+
+.form-section form {
+  width: 80%;
+  margin-bottom: 24px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section form input {
+  padding: 18px;
+  border-radius: 100px;
+  border: 1px solid #0c8599;
+}
+
+.form-section form input:focus {
+  outline: none;
+}
+
+.form-section form input::placeholder {
+  font-family: 'Inter', sans-serif;
+}
+
+.form-section form input:nth-of-type(2) {
+  margin-bottom: 16px;
+}
+
+.form-section form input:last-of-type {
+  margin-bottom: 8px;
+}
+
+.form-section form a:link,
+.form-section form a:visited {
+  font-size: 12px;
+  color: #343a40;
+  align-self: flex-end;
+  margin-bottom: 24px;
+}
+
+.form-section form a:hover,
+.form-section form a:active {
+  text-decoration: underline;
+}
+
+.form-section form button {
+  padding: 18px;
+  border-radius: 100px;
+  border: none;
+  background-color: #0c8599;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form-section form button:hover {
+  background-color: #1098ad;
+}
+
+.form-section p > a:link,
+.form-section p > a:visited {
+  color: #0c8599;
+}
+
+.form-section p > a:hover,
+.form-section p > a:active {
+  text-decoration: underline;
+}
