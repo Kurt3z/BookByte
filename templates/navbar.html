@@ -1,3 +1,5 @@
+{% load static %}
+
 <nav>
     <h1><span>B</span>ook <span>B</span>yte</h1>
 
@@ -8,10 +10,21 @@
       <li>Contactos</li>
     </ul>
 
+    {% if request.user.is_authenticated %}
+    <div class="accounts">
+      <div class="profile-picture-box">
+        <img src="{{request.user.profile_image.url}}" alt="">
+      </div>
+      <a href="#" class="btn btn--medium">Terminar Sessão</a>
+    </div>
+    
+    {% else %}
     <div class="accounts">
       <a href="#" id="login-btn">Login</a>
       <a href="#" class="btn btn--medium">Criar Conta</a>
     </div>
+    
+    {% endif %}
 
     <div class="responsive-menu">
       <img src="./content/icons/list-blue.svg" alt="" id="hamburger-icon" />

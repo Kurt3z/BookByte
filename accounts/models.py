@@ -22,13 +22,14 @@ class Contact(AbstractUser):
     email = models.EmailField(max_length=500, unique=True)
     birthdate = models.DateField(
         auto_now=False, auto_now_add=False, blank=True, null=True)
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True)
-    street = models.CharField(max_length=500, null=True)
-    building = models.PositiveIntegerField(null=True)
+    gender = models.CharField(
+        max_length=1, choices=GENDER_CHOICES, null=True, blank=True)
+    street = models.CharField(max_length=500, null=True, blank=True)
+    building = models.PositiveIntegerField(null=True, blank=True)
     postal_code = models.CharField(max_length=8, validators=[
-        RegexValidator(regex="^\d{4}-\d{3}$", message="Insira um Código-Postal válido.")], null=True)
+        RegexValidator(regex="^\d{4}-\d{3}$", message="Insira um Código-Postal válido.")], null=True, blank=True)
     district = models.ForeignKey(
-        District, on_delete=models.SET_NULL, null=True)
+        District, on_delete=models.SET_NULL, null=True, blank=True)
     profile_image = models.ImageField(
         upload_to="profiles/", default="user-default.jpg", null=True)
 

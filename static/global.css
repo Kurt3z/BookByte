@@ -152,6 +152,13 @@ nav .accounts {
   gap: 40px;
 }
 
+nav .accounts .profile-picture-box img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid #0c8599;
+}
+
 nav .responsive-menu {
   display: none;
 }
