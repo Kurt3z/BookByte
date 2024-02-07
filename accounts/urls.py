@@ -8,4 +8,6 @@ urlpatterns = [
     path("register/", views.registerReader, name="register"),
     path("staff-register/", views.registerLibrarian, name="staff-register"),
     path("logout/", views.logoutUser, name="logout"),
+
+    path("profile/", views.profile, name="profile")
 ]

@@ -3,7 +3,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 
 from .models import Contact, Reader, Librarian
-from .forms import ContactForm
+from .forms import ContactForm, ProfileEditForm
 
 
 def loginUser(request):
@@ -95,3 +95,7 @@ def registerReader(request):
     }
 
     return render(request, "accounts/register.html", context)
+
+
+def profile(request):
+    return render(request, "accounts/user-profile.html")

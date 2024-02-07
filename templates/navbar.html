@@ -4,7 +4,7 @@
     <h1><span>B</span>ook <span>B</span>yte</h1>
 
     <ul class="navigation">
-      <li>Livros</li>
+      <li><a href="{% url "books" %}">Livros</a></li>
       <li>Filmes</li>
       <li>Regras</li>
       <li>Contactos</li>
@@ -13,7 +13,9 @@
     {% if request.user.is_authenticated %}
     <div class="accounts">
       <div class="profile-picture-box">
-        <img src="{{request.user.profile_image.url}}" alt="">
+        <a href="{% url "profile" %}">
+          <img src="{{request.user.profile_image.url}}" alt="">
+        </a>
       </div>
       <a href="{% url "logout" %}" class="btn btn--medium">Terminar Sessão</a>
     </div>

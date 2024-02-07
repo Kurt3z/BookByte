@@ -146,6 +146,18 @@ nav .navigation {
   gap: 80px;
 }
 
+nav .navigation a:link,
+nav .navigation a:visited {
+  color: #343a40;
+  font-size: 18px;
+}
+
+nav .navigation a:hover,
+nav .navigation a:active {
+  color: #0c8599;
+  text-decoration: underline;
+}
+
 nav .accounts {
   display: flex;
   align-items: center;

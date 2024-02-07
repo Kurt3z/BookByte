@@ -1,7 +1,17 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+from django import forms
 
 from .models import Contact
+
+
+class ProfileEditForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = [
+            "first_name", "last_name",
+            "gender", "street", "building", "postal_code"
+        ]
 
 
 class ContactForm(UserCreationForm):
