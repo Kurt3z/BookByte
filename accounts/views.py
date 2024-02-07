@@ -32,6 +32,12 @@ def loginUser(request):
     return render(request, "accounts/login.html")
 
 
+def logoutUser(request):
+    logout(request)
+    messages.info(request, "Sessão encerrada com sucesso.")
+    return redirect("login")
+
+
 def registerReader(request):
     form = ContactForm()
 

@@ -15,7 +15,7 @@
       <div class="profile-picture-box">
         <img src="{{request.user.profile_image.url}}" alt="">
       </div>
-      <a href="#" class="btn btn--medium">Terminar Sessão</a>
+      <a href="{% url "logout" %}" class="btn btn--medium">Terminar Sessão</a>
     </div>
     
     {% else %}
