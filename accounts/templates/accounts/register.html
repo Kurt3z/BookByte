@@ -4,17 +4,37 @@
 {% block title %}Registar{% endblock title %}
 
 {% block styles %}
+
+{% if page == "librarian" %}
+<link rel="stylesheet" href="{% static "staff/navigation.css" %}">
 <link rel="stylesheet" href="{% static "accounts/register.css" %}">
+
+{% else %}
+<link rel="stylesheet" href="{% static "accounts/register.css" %}">
+
+{% endif %}
+
 {% endblock styles %}
 
 
 {% block content %}
+{% if page == "librarian" %}
+{% include "staff/navigation.html" %}
+
+{% else %}
 {% include "navbar.html" %}
+
+{% endif %}
 
 <main>
     <section class="form-section">
+        {% if page == "librarian" %}
+        <h2 style="margin-bottom: 32px;">Registar Bibliotecário</h2>
+
+        {% else %}
         <h2><span>B</span>ook<span> B</span>yte</h2>
         <h3>Registo</h3>
+        {% endif %}
 
         <form method="post">
             {% csrf_token %}
@@ -25,11 +45,11 @@
             <button type="submit">Registar</button>
         </form>
 
+        {% if page != "librarian" %}
         <p>Já possui uma conta? <a href="{% url "login" %}">Inicie Sessão</a></p>
+        {% endif %}
     </section>
 </main>
-
-
 
 {% include "footer.html" %}
 {% endblock content %}

@@ -25,12 +25,12 @@
               <ul class="product--description">
                 <li>
                   <i class="ph ph-book"></i>
-                  <span class="title"><strong>{{book.title|truncatechars:23}}</strong></span>
+                  <span class="title"><strong>{{book.title|truncatechars:16}}</strong></span>
                 </li>
                 <li>
                   <i class="ph ph-user"></i>
                   {% for author in book.author.all %}
-                  <span>{{author}}</span>
+                  <span>{{author|truncatechars:8}}</span>
                   {% endfor %}
                 </li>
                 <li>

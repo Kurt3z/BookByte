@@ -10,7 +10,7 @@ class Publisher(models.Model):
     website = models.URLField()
 
     class Meta:
-        ordering = ["-created"]
+        ordering = ["name"]
 
     def __str__(self):
         return self.name

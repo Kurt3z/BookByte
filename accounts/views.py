@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 
-from .models import Contact, Reader
+from .models import Contact, Reader, Librarian
 from .forms import ContactForm
 
 
@@ -36,6 +36,35 @@ def logoutUser(request):
     logout(request)
     messages.info(request, "Sessão encerrada com sucesso.")
     return redirect("login")
+
+
+def registerLibrarian(request):
+    form = ContactForm()
+
+    if request.user.is_authenticated:
+        return redirect("dashboard")
+
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = user.username.lower()
+            user.save()
+
+            librarian = Librarian.objects.create(user=user)
+            messages.success(request, "Bibliotecário criado com sucesso.")
+
+            return redirect("dashboard")
+        else:
+            messages.error(request, "Ocorreu um erro durante o registo")
+
+    context = {
+        "form": form,
+        "page": "librarian"
+    }
+
+    return render(request, "accounts/register.html", context)
 
 
 def registerReader(request):

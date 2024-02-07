@@ -63,7 +63,7 @@ def publishersDashboard(request):
 
 def genresDashboard(request):
     genres = Genre.objects.all()
-    custom_range, genres = paginateBooks(request, genres, 8)
+    custom_range, genres = paginateBooks(request, genres, 16)
     context = {
         "genres": genres,
         "custom_range": custom_range
