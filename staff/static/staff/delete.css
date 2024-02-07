@@ -1,0 +1,53 @@
+body {
+  background-color: #f1f3f5;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body div {
+  width: 40%;
+  padding: 32px;
+  text-align: center;
+  margin-top: 64px;
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+body div p {
+  margin-bottom: 32px;
+}
+
+body div p span {
+  text-transform: uppercase;
+  color: #e03131;
+  font-weight: 700;
+}
+
+body div form input[type='submit'],
+body div form a:link,
+body div form a:visited {
+  margin-right: 16px;
+  padding: 8px 12px;
+  font-family: 'Inter', sans-serif;
+  border-radius: 10px;
+  border: none;
+  background-color: #0c8599;
+  color: #fff;
+  cursor: pointer;
+}
+
+body div form a:link,
+body div form a:visited {
+  font-size: 13.3333px;
+}
+
+body div form a:hover,
+body div form a:active {
+  background-color: #2f9e44;
+}
+
+body div form input[type='submit']:hover {
+  background-color: #e03131;
+}

@@ -3,11 +3,18 @@
 
 {% block title %}Apagar ?{% endblock title %}
 
+{% block styles %}
+<link rel="stylesheet" href="{% static "staff/delete.css" %}">
+{% endblock styles %}
+
 
 {% block content %}
-<p>Tem a certeza que pretende eliminar <strong>{{object}}</strong>?</p>
-<form action="" method="POST">
-    {% csrf_token %}
-    <input type="submit" value="Confirmar">
-</form>
+<div>
+    <p>Tem a certeza que pretende <span>eliminar</span> <strong>{{object}}</strong>?</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Confirmar">
+        <a href="{{request.META.HTTP_REFERER|escape}}">Voltar</a>
+    </form>
+</div>
 {% endblock content %}
