@@ -118,3 +118,22 @@ main {
 .form-section p > a:active {
   text-decoration: underline;
 }
+
+@media (max-width: 640px) {
+  main {
+    padding: 0 64px;
+  }
+
+  .form-section h2 {
+    font-size: 32px;
+  }
+
+  .form-section span {
+    font-size: 44px;
+    color: #0c8599;
+  }
+
+  .form-section p {
+    text-align: center;
+  }
+}
