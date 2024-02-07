@@ -2,15 +2,7 @@
 {% load static %}
 
 {% block title %}
-
-{% if page == "login" %}
 Iniciar Sessão
-
-{% else %}
-Registar
-
-{% endif %}
-
 {% endblock title %}
 
 {% block styles %}
@@ -22,8 +14,6 @@ Registar
 {% include "navbar.html" %}
 
 <main>
-
-    {% if page == "login" %}
     <section class="form-section">
         <h2><span>B</span>ook<span> B</span>yte</h2>
         <h3>Iniciar Sessão</h3>
@@ -36,9 +26,8 @@ Registar
             <button type="submit">Iniciar Sessão</button>
         </form>
 
-        <p>Ainda não possui uma conta? <a href="#">Registar</a></p>
+        <p>Ainda não possui uma conta? <a href="{% url "register" %}">Registar</a></p>
     </section>
-    {% endif %}
 </main>
 
 

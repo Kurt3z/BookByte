@@ -36,6 +36,12 @@ class Contact(AbstractUser):
 class Reader(models.Model):
     user = models.OneToOneField(Contact, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.user.username
+
 
 class Librarian(models.Model):
     user = models.OneToOneField(Contact, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.username
