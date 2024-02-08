@@ -1,4 +1,4 @@
-{% extends "main.html" %}
+    {% extends "main.html" %}
 {% load static %}
 
 {% block title %}O meu perfil{% endblock title %}
@@ -11,7 +11,47 @@
 {% include "navbar.html" %}
 
 <main>
-
+    <section class="col1--row1">
+        {% if request.user.reader %}
+        <p>Leitor</p>
+        {% elif request.user.librarian %}
+        <p>Bibliotecário</p>
+        {% else %}
+        <p>Administrador</p>
+        {% endif %}
+        <div class="image--box">
+            <img src="{{ request.user.profile_image.url }}" alt="">
+        </div>
+        <p> {{ request.user.username }} </p>
+        <h2>{{ request.user.first_name }} {{ request.user.last_name }}</h2>
+    </section>
+    <section class="col2--row1">
+        <ul class="information">
+            <li>
+                <p>Nome: <span>{{ request.user.first_name }} {{ request.user.last_name }}</span></p>
+            </li>
+            <li>
+                <p>Email: <span>{{ request.user.email }}</span></p>
+            </li>
+            <li>
+                <p>Data de Nascimento: <span>{{ request.user.birthdate|date:"d F Y" }}</span></p>
+            </li>
+            <li>
+                <p>Género: <span>{{ request.user.get_gender_display }}</span></p>
+            </li>
+            <li>
+                <p>Rua: <span>{{ request.user.street }} {{ request.user.building }}</span></p>
+            </li>
+            <li>
+                <p>Código Postal: <span>{{ request.user.postal_code }}</span></p>
+            </li>
+            <li>
+                <p>Distrito: <span>{{ request.user.district }}</span></p>
+            </li>
+        </ul>
+        <a href="#" id="edit">Editar Perfil</a>
+    </section>
+    <section class="col1--row2-span"></section>
 </main>
 
 

@@ -24,7 +24,7 @@ def loginUser(request):
 
         if user is not None:
             login(request, user)
-            return redirect("books")
+            return redirect("profile")
         else:
             messages.error(
                 request, "Nome de utilizador ou palavra-passe incorretos.")
