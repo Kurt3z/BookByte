@@ -99,3 +99,14 @@ def registerReader(request):
 
 def profile(request):
     return render(request, "accounts/user-profile.html")
+
+
+def editProfile(request):
+    user = request.user
+    form = ProfileEditForm(instance=user)
+
+    context = {
+        "form": form
+    }
+
+    return render(request, "accounts/profile-form.html", context)

@@ -12,8 +12,8 @@
     <h2>Bibliotecário</h2>
 
     <div class="account-box">
-        <span>Olá, Tiago!</span>
-        <img src="{% static "icons/librarian-default.png" %}" alt="">
+        <span>Olá, {{request.user.first_name}}!</span>
+        <img src="{{request.user.profile_image.url}}" alt="">
     </div>
 </header>
 
@@ -62,9 +62,8 @@
         <p>Aguardando aprovação</p>
     </div>
     <div class="card">
-        <h3>Conteúdo Recente</h3>
+        <h3>Atividade Recente</h3>
     </div>
-    <div class="card"></div>
 </main>
 
 {% endblock content %}

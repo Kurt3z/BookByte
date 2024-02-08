@@ -10,8 +10,14 @@ class ProfileEditForm(forms.ModelForm):
         model = Contact
         fields = [
             "first_name", "last_name",
-            "gender", "street", "building", "postal_code"
+            "gender", "street", "building", "postal_code", "district", "profile_image"
         ]
+
+        labels = {
+            "first_name": "Nome", "last_name": "Apelido",
+            "gender": "Género", "street": "Rua", "building": "Porta",
+            "postal_code": "Código Postal", "district": "Distrito"
+        }
 
 
 class ContactForm(UserCreationForm):

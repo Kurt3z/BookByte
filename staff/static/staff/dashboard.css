@@ -143,7 +143,7 @@ body {
 
 .card:nth-child(4) {
   grid-area: c4;
-  padding: 32px;
+  padding: 24px;
 }
 
 .card:nth-child(4) h3 {
@@ -157,6 +157,8 @@ body {
 
 .card:nth-child(5) {
   grid-area: c5;
+  grid-row: span 2;
+  padding: 24px;
 }
 
 .card:nth-child(6) {

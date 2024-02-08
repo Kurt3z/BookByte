@@ -22,7 +22,7 @@ body {
 }
 
 main {
-  margin: 96px;
+  margin: 0 auto;
   width: 100vw;
 }
 
@@ -140,7 +140,8 @@ button[type='submit']:hover {
 
 .errorlist {
   list-style: none;
-  margin-bottom: 12px;
+  margin-top: -12px;
+  margin-bottom: 32px;
 }
 
 .errorlist li {
