@@ -61,3 +61,8 @@ class ContactForm(UserCreationForm):
         model = Contact
         fields = ["username", "password1", "password2",
                   "email", "first_name", "last_name", "birthdate"]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.base_fields.items():
+            field.error_messages['required'] = "Este campo não pode ser submetido vazio."

@@ -119,6 +119,18 @@ main {
   text-decoration: underline;
 }
 
+.errorlist {
+  list-style: none;
+}
+
+.errorlist li {
+  padding: 8px;
+  background-color: #ffa8a8;
+  color: #c92a2a;
+  font-weight: 700;
+  border-radius: 100px;
+}
+
 @media (max-width: 640px) {
   main {
     padding: 0 32px;

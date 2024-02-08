@@ -26,23 +26,27 @@
         <label for="" class="margin-zero">{{field.label}}</label>
         <p>Para selecionar uma ou várias opções utilize a tecla CTRL</p>
         {{field}}
+        {{field.errors}}
         <a href="{% url "add-author" %}" class="btn-create">Criar Autor</a>
 
         {% elif  field.label == "Géneros"  %}
         <label for="" class="margin-zero">{{field.label}}</label>
         <p>Para selecionar uma ou várias opções utilize a tecla CTRL</p>
         {{field}}
+        {{field.errors}}
         <a href="{% url "add-genre" %}" class ="btn-create">Criar Género</a>
 
         {% elif field.label == "Editora" %}
         <label for="">{{field.label}}</label>
         {{field}}
+        {{field.errors}}
         <a href="{% url "add-publisher" %}" class ="btn-create">Criar Editora</a>
 
         
         {% else %}
         <label for="">{{field.label}}</label>
         {{field}}
+        {{field.errors}}
 
         {% endif %}
 

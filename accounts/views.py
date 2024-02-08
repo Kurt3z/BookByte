@@ -8,7 +8,7 @@ from .forms import ContactForm, ProfileEditForm
 
 def loginUser(request):
     if request.user.is_authenticated:
-        return redirect("books")
+        return redirect("profile")
 
     if request.method == "POST":
         username = request.POST["username"]

@@ -73,14 +73,27 @@ main {
   background-color: #1098ad;
 }
 
-.form-section p > a:link,
-.form-section p > a:visited {
+.form-section p>a:link,
+.form-section p>a:visited {
   color: #0c8599;
 }
 
-.form-section p > a:hover,
-.form-section p > a:active {
+.form-section p>a:hover,
+.form-section p>a:active {
   text-decoration: underline;
+}
+
+.errorlist {
+  list-style: none;
+  margin-top: -14px;
+}
+
+.errorlist li {
+  padding: 8px;
+  color: #c92a2a;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 100px;
 }
 
 @media (max-width: 640px) {

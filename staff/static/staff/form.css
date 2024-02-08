@@ -137,3 +137,13 @@ button[type='submit']:hover {
 .btn-back:hover {
   background-color: #99e9f2;
 }
+
+.errorlist {
+  list-style: none;
+  margin-bottom: 12px;
+}
+
+.errorlist li {
+  color: #c92a2a;
+  font-weight: 700;
+}
