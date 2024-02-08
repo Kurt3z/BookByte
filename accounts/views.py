@@ -13,7 +13,6 @@ def loginUser(request):
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
-        print(username, password)
 
         try:
             user = Contact.objects.get(username=username)
@@ -21,9 +20,10 @@ def loginUser(request):
             messages.error(request, "Nome de utilizador não existente.")
             return render(request, "accounts/login.html")
 
+        user = authenticate(request, username=username, password=password)
+
         if user is not None:
             login(request, user)
-            messages.success(request, "Sessão iniciada com sucesso")
             return redirect("books")
         else:
             messages.error(

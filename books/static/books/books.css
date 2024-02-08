@@ -12,7 +12,7 @@ header form {
   margin-bottom: 48px;
 }
 
-header form > * {
+header form>* {
   font-family: 'Inter', sans-serif;
 }
 
@@ -21,6 +21,14 @@ header form > * {
 main {
   width: 55%;
   margin: 0 auto;
+}
+
+@media ((min-width: 1380px) and (max-width: 1580px)) {
+
+  header,
+  main {
+    width: 65%;
+  }
 }
 
 /* PRODUCTS GRID */

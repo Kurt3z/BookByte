@@ -109,19 +109,19 @@ main {
   background-color: #1098ad;
 }
 
-.form-section p > a:link,
-.form-section p > a:visited {
+.form-section p>a:link,
+.form-section p>a:visited {
   color: #0c8599;
 }
 
-.form-section p > a:hover,
-.form-section p > a:active {
+.form-section p>a:hover,
+.form-section p>a:active {
   text-decoration: underline;
 }
 
 @media (max-width: 640px) {
   main {
-    padding: 0 64px;
+    padding: 0 32px;
   }
 
   .form-section h2 {
