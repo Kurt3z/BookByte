@@ -29,26 +29,39 @@
     {% endif %}
 
     <div class="responsive-menu">
-      <img src="./content/icons/list-blue.svg" alt="" id="hamburger-icon" />
+      <img src="{% static "icons/list-blue.svg" %}" alt="" id="hamburger-icon" />
     </div>
 
     <div class="mobile-nav">
-      <img src="./content/icons/x-circle.svg" alt="" id="close-mobile-nav" />
+      <img src="{% static "icons/x-circle.svg" %}" alt="" id="close-mobile-nav" />
 
       <ul>
+        {% if request.user.is_authenticated %}
+        <li>
+          <div class="profile-picture-box">
+            <a href="{% url "profile" %}">
+              <img src="{{request.user.profile_image.url}}" alt="" id="profile-image">
+            </a>
+          </div>
+        </li> 
+        {% endif %}
         <li>
           <h1><span>B</span>ook <span>B</span>yte</h1>
         </li>
-        <li>Livros</li>
+        <li><a href="{% url "books" %}">Livros</a></li>
         <li>Filmes</li>
         <li>Regras</li>
         <li>Contactos</li>
+        {% if request.user.is_authenticated %} 
+
+        {% else %}
         <li>
-          <a href="#">Login</a>
+          <a href="{% url "login" %}" class="nav-btn">Login</a>
         </li>
         <li>
-          <a href="#" class="">Criar Conta</a>
+          <a href="{% url "register" %}" class="nav-btn">Criar Conta</a>
         </li>
+        {% endif %}
       </ul>
     </div>
 </nav>

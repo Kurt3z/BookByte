@@ -223,7 +223,15 @@ nav .mobile-nav ul li > h1 > span {
 }
 
 nav .mobile-nav ul li a:link,
-nav .mobile-nav ul li a:visited {
+nav .mobile-nav ul li a:visited,
+nav .mobile-nav ul li a:hover,
+nav .mobile-nav ul li a:active {
+  color: #fff;
+  font-weight: 700;
+}
+
+nav .mobile-nav ul li .nav-btn:link,
+nav .mobile-nav ul li .nav-btn:visited {
   color: #fff;
   font-weight: 700;
   display: inline-block;
@@ -235,9 +243,24 @@ nav .mobile-nav ul li a:visited {
   border-radius: 10px;
 }
 
-nav .mobile-nav ul li a:hover,
-nav .mobile-nav ul li a:active {
+nav .mobile-nav ul li .nav-btn:hover,
+nav .mobile-nav ul li .nav-btn:active {
   background-color: #f57c36;
+}
+
+nav .mobile-nav .profile-picture-box {
+  border-radius: 50%;
+}
+
+nav .mobile-nav .profile-picture-box img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #f35b04;
+}
+
+#profile-image {
+  position: initial;
 }
 
 @media (max-width: 1024px) {
