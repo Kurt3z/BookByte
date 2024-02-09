@@ -52,6 +52,7 @@ body {
 
 .sidebar .section-1 ul {
   list-style: none;
+  margin-bottom: 48px;
 }
 
 .sidebar .section-1 ul li {
@@ -104,8 +105,7 @@ body {
 }
 
 .card:nth-child(1),
-.card:nth-child(2),
-.card:nth-child(3) {
+.card:nth-child(2) {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -114,8 +114,7 @@ body {
 }
 
 .card:nth-child(1) > .icon-box,
-.card:nth-child(2) > .icon-box,
-.card:nth-child(3) > .icon-box {
+.card:nth-child(2) > .icon-box {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -126,8 +125,7 @@ body {
 }
 
 .card:nth-child(1) h3,
-.card:nth-child(2) h3,
-.card:nth-child(3) h3 {
+.card:nth-child(2) h3 {
   font-size: 18px;
 }
 
@@ -139,6 +137,12 @@ body {
 
 .card:nth-child(3) {
   grid-area: c3;
+  grid-row: span 3;
+  padding: 24px;
+}
+
+.card:nth-child(3) h3 {
+  font-size: 32px;
 }
 
 .card:nth-child(4) {
@@ -148,6 +152,7 @@ body {
 
 .card:nth-child(4) h3 {
   font-size: 30px;
+  margin-bottom: 16px;
 }
 
 .card:nth-child(4) p {
@@ -157,8 +162,6 @@ body {
 
 .card:nth-child(5) {
   grid-area: c5;
-  grid-row: span 2;
-  padding: 24px;
 }
 
 .card:nth-child(6) {

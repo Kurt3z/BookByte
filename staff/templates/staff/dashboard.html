@@ -9,7 +9,13 @@
 
 {% block content %}
 <header class="header">
-    <h2>Bibliotecário</h2>
+    <h2>
+        {% if request.user.is_superuser %}
+        Administrador
+        {% else %}
+        Bibliotecário
+        {% endif %}
+    </h2>
 
     <div class="account-box">
         <span>Olá, {{request.user.first_name}}!</span>
@@ -30,6 +36,12 @@
             <li><a href="{% url "genres-dashboard" %}">Géneros</a></li>
             <li><a href="#">Requisições</a></li>
         </ul>
+
+        {% if request.user.is_superuser %}
+        <ul>
+            <li><a href="{% url "staff-register" %}">Registar Staff</a></li>
+        </ul>
+        {% endif %}
     </div>
 
     <p>2024 &copy; BookByte</p>
@@ -51,18 +63,11 @@
         <p>{{total_movies}}</p>
     </div>
     <div class="card">
-        <div class="icon-box">
-            <img src="{% static "icons/film-reel-44px-teal.svg" %}" alt="">
-        </div>
-        <h3>Géneros mais Populares</h3>
-        <p>Lorem Ipsum</p>
+        <h3>Atividade Recente</h3>
     </div>
     <div class="card">
         <h3>Requisições</h3>
         <p>Aguardando aprovação</p>
-    </div>
-    <div class="card">
-        <h3>Atividade Recente</h3>
     </div>
 </main>
 

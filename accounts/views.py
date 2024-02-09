@@ -1,9 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 
 from .models import Contact, Reader, Librarian
 from .forms import ContactForm, ProfileEditForm
+
+
+def is_admin(user):
+    return user.is_superuser
 
 
 def loginUser(request):
@@ -38,11 +43,10 @@ def logoutUser(request):
     return redirect("login")
 
 
+@login_required(login_url="login")
+@user_passes_test(is_admin)
 def registerLibrarian(request):
     form = ContactForm()
-
-    if request.user.is_authenticated:
-        return redirect("dashboard")
 
     if request.method == "POST":
         form = ContactForm(request.POST)
@@ -97,10 +101,12 @@ def registerReader(request):
     return render(request, "accounts/register.html", context)
 
 
+@login_required(login_url="login")
 def profile(request):
     return render(request, "accounts/user-profile.html")
 
 
+@login_required(login_url="login")
 def editProfile(request):
     user = request.user
     form = ProfileEditForm(instance=user)

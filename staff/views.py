@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required, user_passes_test
 
 from books.models import Book, Author
 from books.forms import BookForm, AuthorForm
@@ -9,6 +10,12 @@ from books.filters import BookFilter
 from books.utils import paginateBooks
 
 
+def is_librarian(user):
+    return hasattr(user, "librarian") or user.is_superuser
+
+
+@login_required(login_url="login")
+@user_passes_test(is_librarian)
 def dashboard(request):
     # total_books = Book.objects.count()
     total_books = 0
@@ -22,6 +29,8 @@ def dashboard(request):
     return render(request, "staff/dashboard.html", context)
 
 
+@login_required(login_url="login")
+@user_passes_test(is_librarian)
 def booksDashboard(request):
     books = Book.objects.all()
     myFilter = BookFilter(request.GET, queryset=books)
@@ -37,6 +46,8 @@ def booksDashboard(request):
     return render(request, "staff/books-dashboard.html", context)
 
 
+@login_required(login_url="login")
+@user_passes_test(is_librarian)
 def authorsDashboard(request):
     authors = Author.objects.all()
     custom_range, authors = paginateBooks(request, authors, 8)
@@ -49,6 +60,8 @@ def authorsDashboard(request):
     return render(request, "staff/authors-dashboard.html", context)
 
 
+@login_required(login_url="login")
+@user_passes_test(is_librarian)
 def publishersDashboard(request):
     publishers = Publisher.objects.all()
     custom_range, publishers = paginateBooks(request, publishers, 8)
@@ -61,6 +74,8 @@ def publishersDashboard(request):
     return render(request, "staff/publishers-dashboard.html", context)
 
 
+@login_required(login_url="login")
+@user_passes_test(is_librarian)
 def genresDashboard(request):
     genres = Genre.objects.all()
     custom_range, genres = paginateBooks(request, genres, 16)
@@ -73,7 +88,8 @@ def genresDashboard(request):
 
 
 # BOOKS CRUD
-
+@login_required(login_url="login")
+@user_passes_test(is_librarian)
 def addBook(request):
     form = BookForm()
 
@@ -91,6 +107,8 @@ def addBook(request):
     return render(request, "staff/form.html", context)
 
 
+@login_required(login_url="login")
+@user_passes_test(is_librarian)
 def updateBook(request, pk):
     book = Book.objects.get(id=pk)
     form = BookForm(instance=book)
@@ -109,6 +127,8 @@ def updateBook(request, pk):
     return render(request, "staff/form.html", context)
 
 
+@login_required(login_url="login")
+@user_passes_test(is_librarian)
 def deleteBook(request, pk):
     book = Book.objects.get(id=pk)
 
@@ -124,7 +144,8 @@ def deleteBook(request, pk):
 
 
 # AUTHORS CRUD
-
+@login_required(login_url="login")
+@user_passes_test(is_librarian)
 def addAuthor(request):
     form = AuthorForm()
 
@@ -143,6 +164,8 @@ def addAuthor(request):
     return render(request, "staff/form.html", context)
 
 
+@login_required(login_url="login")
+@user_passes_test(is_librarian)
 def updateAuthor(request, pk):
     author = Author.objects.get(id=pk)
     form = AuthorForm(instance=author)
@@ -161,6 +184,8 @@ def updateAuthor(request, pk):
     return render(request, "staff/form.html", context)
 
 
+@login_required(login_url="login")
+@user_passes_test(is_librarian)
 def deleteAuthor(request, pk):
     author = Author.objects.get(id=pk)
 
@@ -177,6 +202,8 @@ def deleteAuthor(request, pk):
 # PUBLISHER CRUD
 
 
+@login_required(login_url="login")
+@user_passes_test(is_librarian)
 def addPublisher(request):
     form = PublisherForm()
 
@@ -194,6 +221,8 @@ def addPublisher(request):
     return render(request, "staff/form.html", context)
 
 
+@login_required(login_url="login")
+@user_passes_test(is_librarian)
 def updatePublisher(request, pk):
     publisher = Publisher.objects.get(id=pk)
     form = PublisherForm(instance=publisher)
@@ -212,6 +241,8 @@ def updatePublisher(request, pk):
     return render(request, "staff/form.html", context)
 
 
+@login_required(login_url="login")
+@user_passes_test(is_librarian)
 def deletePublisher(request, pk):
     publisher = Publisher.objects.get(id=pk)
 
@@ -228,6 +259,8 @@ def deletePublisher(request, pk):
 # GENRES CRUD
 
 
+@login_required(login_url="login")
+@user_passes_test(is_librarian)
 def addGenre(request):
     form = GenreForm()
 
@@ -246,6 +279,8 @@ def addGenre(request):
     return render(request, "staff/form.html", context)
 
 
+@login_required(login_url="login")
+@user_passes_test(is_librarian)
 def updateGenre(request, pk):
     genre = Genre.objects.get(id=pk)
     form = GenreForm(instance=genre)
@@ -264,6 +299,8 @@ def updateGenre(request, pk):
     return render(request, "staff/form.html", context)
 
 
+@login_required(login_url="login")
+@user_passes_test(is_librarian)
 def deleteGenre(request, pk):
     genre = Genre.objects.get(id=pk)
 

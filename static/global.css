@@ -125,6 +125,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 32px;
+  box-shadow: 0 1px 5px 0 #343a400a;
 }
 
 nav h1 {
@@ -216,7 +217,7 @@ nav .mobile-nav ul {
   gap: 32px;
 }
 
-nav .mobile-nav ul li>h1>span {
+nav .mobile-nav ul li > h1 > span {
   font-size: 32px;
   color: #fff;
 }
@@ -264,40 +265,40 @@ footer {
   background-color: #f1f3f5;
 }
 
-footer>section {
+footer > section {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 }
 
-footer>section>div>h3 {
+footer > section > div > h3 {
   margin-bottom: 24px;
 }
 
-footer>section>div>ul {
+footer > section > div > ul {
   list-style: none;
 }
 
-footer>section>div>ul>li {
+footer > section > div > ul > li {
   margin-bottom: 8px;
 }
 
-footer>section>div>ul>li:last-of-type {
+footer > section > div > ul > li:last-of-type {
   margin-bottom: 0;
 }
 
-footer>section>div>ul>li>a:link,
-footer>section>div>ul>li>a:visited {
+footer > section > div > ul > li > a:link,
+footer > section > div > ul > li > a:visited {
   font-size: 14px;
   color: #343a40;
 }
 
-footer>section>div>ul>li>a:hover,
-footer>section>div>ul>li>a:active {
+footer > section > div > ul > li > a:hover,
+footer > section > div > ul > li > a:active {
   color: #0c8599;
   text-decoration: underline;
 }
 
-footer>section>div>form>input {
+footer > section > div > form > input {
   padding: 16px;
   border: none;
   box-shadow: 0px 1px 10px 0px #24292d18;
@@ -306,12 +307,12 @@ footer>section>div>form>input {
   margin-bottom: 16px;
 }
 
-footer>section>div>form>input:focus {
+footer > section > div > form > input:focus {
   border: 1px solid #0c8599;
   outline: none;
 }
 
-footer>section>div>form>button[type='submit'] {
+footer > section > div > form > button[type='submit'] {
   display: inline-block;
   width: 80%;
   border-radius: 0;
@@ -323,12 +324,12 @@ footer span {
 }
 
 @media (max-width: 768px) {
-  footer>section {
+  footer > section {
     column-gap: 32px;
   }
 
-  footer>section>div>ul>li>a:link,
-  footer>section>div>ul>li>a:visited {
+  footer > section > div > ul > li > a:link,
+  footer > section > div > ul > li > a:visited {
     font-size: 12px;
   }
 }
@@ -338,23 +339,23 @@ footer span {
     padding: 32px;
   }
 
-  footer>section {
+  footer > section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
     column-gap: 8px;
   }
 
-  body>footer>section>div:nth-child(4) {
+  body > footer > section > div:nth-child(4) {
     margin-bottom: 32px;
   }
 
-  footer>section>div {
+  footer > section > div {
     height: fit-content;
     padding: 16px;
   }
 
-  footer>section>div:last-of-type {
+  footer > section > div:last-of-type {
     grid-column: span 2;
   }
 }
