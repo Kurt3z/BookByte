@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "books.apps.BooksConfig",
     "staff.apps.StaffConfig",
     "accounts.apps.AccountsConfig",
+    "requisitions.apps.RequisitionsConfig",
 
     "django_filters",
 ]
