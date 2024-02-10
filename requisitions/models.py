@@ -1,3 +1,29 @@
+import uuid
 from django.db import models
+from django.utils import timezone
+from datetime import timedelta
 
-# Create your models here.
+from accounts.models import Reader
+from models.models import Content
+
+
+class Requisition(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    reader = models.ForeignKey(
+        Reader, on_delete=models.SET_NULL, null=True, blank=True)
+    contents = models.ManyToManyField(Content)
+    is_complete = models.BooleanField(default=False, null=True, blank=False)
+    date_created = models.DateTimeField(
+        auto_now=False, auto_now_add=True, editable=False)
+    return_date = models.DateTimeField(
+        auto_now=False, auto_now_add=False, editable=False)
+
+    def __str__(self):
+        return str(self.id)
+
+    def save(self, *args, **kwargs):
+        if not self.date_created:
+            self.date_created = timezone.now()
+
+        self.return_date = self.date_created + timedelta(days=30)
+        super().save(*args, **kwargs)
