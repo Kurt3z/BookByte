@@ -177,6 +177,19 @@ td {
   padding: 4px;
 }
 
+.card:nth-child(4) td form input[type='submit'] {
+  font-family: 'Merriweather', serif;
+  padding: 4px 8px;
+  background-color: #0c8599;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.card:nth-child(4) td form input[type='submit']:hover {
+  background-color: #15aabf;
+}
+
 @media (max-width: 925px) {
   .main {
     grid-template-columns: 1fr;
