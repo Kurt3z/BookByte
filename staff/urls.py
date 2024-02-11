@@ -36,4 +36,8 @@ urlpatterns = [
          views.updateGenre, name="update-genre"),
     path("genres-dashboard/delete-genre/<str:pk>/",
          views.deleteGenre, name="delete-genre"),
+
+
+    path("deliver-requisition/<str:pk>/", views.deliverRequisition,
+         name="deliver-requisition"),
 ]

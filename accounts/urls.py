@@ -10,5 +10,6 @@ urlpatterns = [
     path("logout/", views.logoutUser, name="logout"),
 
     path("profile/", views.profile, name="profile"),
+    path("profile/<str:pk>", views.publicProfile, name="public-profile"),
     path("edit-profile/", views.editProfile, name="edit-profile"),
 ]

@@ -134,3 +134,13 @@ def editProfile(request):
     }
 
     return render(request, "accounts/profile-form.html", context)
+
+
+def publicProfile(request, pk):
+    user = Contact.objects.get(id=pk)
+
+    context = {
+        "user": user
+    }
+
+    return render(request, "accounts/profile.html", context)

@@ -40,7 +40,6 @@ function updateUserRequisition(contentId, action) {
         return response.json()
     }).then((data) => {
         console.log(data);
-        location.reload()
 
         if (data.error) {
             alert(data.error)

@@ -1,0 +1,56 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block title %}O meu perfil{% endblock title %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "accounts/profile.css" %}">
+{% endblock styles %}
+
+{% block content %}
+{% include "navbar.html" %}
+
+<main>
+    <section class="col1--row1">
+        {% if user.reader %}
+        <p>Leitor</p>
+        {% elif user.librarian %}
+        <p>Bibliotecário</p>
+        {% else %}
+        <p>Administrador</p>
+        {% endif %}
+        <div class="image--box">
+            <img src="{{ user.profile_image.url }}" alt="">
+        </div>
+        <p> {{ user.username }} </p>
+        <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+    </section>
+    <section class="col2--row1">
+        <ul class="information">
+            <li>
+                <p>Nome: <span>{{ user.first_name }} {{ user.last_name }}</span></p>
+            </li>
+            <li>
+                <p>Email: <span>{{ user.email }}</span></p>
+            </li>
+            <li>
+                <p>Data de Nascimento: <span>{{ user.birthdate|date:"d F Y" }}</span></p>
+            </li>
+            <li>
+                <p>Género: <span>{{ user.get_gender_display }}</span></p>
+            </li>
+            <li>
+                <p>Rua: <span>{{ user.street }} {{ user.building }}</span></p>
+            </li>
+            <li>
+                <p>Código Postal: <span>{{ user.postal_code }}</span></p>
+            </li>
+            <li>
+                <p>Distrito: <span>{{ user.district }}</span></p>
+            </li>
+        </ul>
+    </section>
+</main>
+
+
+{% endblock content %}

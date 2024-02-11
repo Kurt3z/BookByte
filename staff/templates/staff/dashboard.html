@@ -25,7 +25,7 @@
 
 <section class="sidebar">
     <div class="section-1">
-        <h1><span>B</span>ook<span>B</span>yte</h1>
+        <h1><a href="{% url "index" %}"><span>B</span>ook<span>B</span>yte</a></h1>
 
         <ul>
             <li><a href="{% url "books-dashboard" %}">Livros</a></li>
@@ -67,7 +67,40 @@
     </div>
     <div class="card">
         <h3>Requisições</h3>
-        <p>Aguardando aprovação</p>
+        <p>Em aberto</p>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Data</th>
+                <th>Data de Entrega</th>
+                <th>Conteúdos</th>
+                <th>Leitor</th>
+                <th></th>
+            </tr>
+
+            {% for requisition in requisitions %}
+            <tr>
+                <td>{{requisition.id|truncatechars:"20"}}</td>
+                <td>{{requisition.date_created|date:"d F Y"}}</td>
+                <td>{{requisition.return_date|date:"d F Y"}}</td>
+                <td>
+                    {% for content in requisition.contents.all %}
+                    <p><a href="{% url "book" content.slug %}">{{content.title}}</a></p>
+                    {% endfor %}
+                </td>
+                <td>
+                    <p><a href="{% url "public-profile" requisition.reader.user.id %}">{{requisition.reader}}</a></p>
+                </td>
+                <td>
+                    <form action="{% url "deliver-requisition" requisition.id%}" method="POST">
+                        {% csrf_token %}
+                        <input type="submit" value="Finalizar">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
     </div>
 </main>
 

@@ -5,6 +5,7 @@ from books.models import Book, Author
 from books.forms import BookForm, AuthorForm
 from models.models import Publisher, Genre
 from models.forms import PublisherForm, GenreForm
+from requisitions.models import Requisition
 
 from books.filters import BookFilter
 from books.utils import paginateBooks
@@ -20,10 +21,13 @@ def dashboard(request):
     # total_books = Book.objects.count()
     total_books = 0
     total_movies = 0
+    open_requisitions = Requisition.objects.filter(
+        is_delivered=False, is_complete=True)
 
     context = {
         "total_books": total_books,
-        "total_movies": total_movies
+        "total_movies": total_movies,
+        "requisitions": open_requisitions
     }
 
     return render(request, "staff/dashboard.html", context)
@@ -313,3 +317,18 @@ def deleteGenre(request, pk):
     }
 
     return render(request, "staff/delete.html", context)
+
+
+def deliverRequisition(request, pk):
+    requisition = Requisition.objects.get(id=pk)
+
+    if request.method == "POST":
+        requisition.is_delivered = True
+
+        for content in requisition.contents.all():
+            content.quantity += 1
+            content.save()
+
+        requisition.save()
+
+        return redirect("dashboard")
