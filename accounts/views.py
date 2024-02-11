@@ -77,7 +77,7 @@ def registerReader(request):
     form = ContactForm()
 
     if request.user.is_authenticated:
-        return redirect("books")
+        return redirect("index")
 
     if request.method == "POST":
         form = ContactForm(request.POST)

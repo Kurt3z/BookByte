@@ -288,6 +288,14 @@ nav .mobile-nav .profile-picture-box img {
   border: 2px solid #f35b04;
 }
 
+nav .mobile-nav ul span {
+  color: #fff;
+}
+
+.logo {
+  color: #343a40;
+}
+
 #profile-image {
   position: initial;
 }
