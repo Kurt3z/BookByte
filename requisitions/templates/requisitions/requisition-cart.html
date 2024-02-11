@@ -1,0 +1,49 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block title %}Requisição{% endblock title %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "requisitions/requisition-cart.css" %}">
+{% endblock styles %}
+
+
+{% block content %}
+
+{% include "navbar.html" %}
+
+<main>
+    <section class="cart">
+        <h2>Conteúdos a Requisitar</h2>
+        {% if contents %}
+        <ul>
+            {% for content in contents %}
+            <li>
+                <div class="text">
+                    <h3>{{content.title}}</h3>
+                    <p>{{content.summary|truncatechars:"250"}}</p>
+                </div>
+                <div class="cover-div">
+                    <img src="{{content.cover.url}}" alt="">
+                    <button data-content={{content.id}} data-action="remove" class="update-cart">Remover</button>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <div>
+            <form method="POST" action="{% url "submit-requisition" requisition.id %}">
+                {% csrf_token %}   
+                <button type="submit" class="btn btn--medium">Submeter Requisição</button>
+            </form>
+        </div>
+        {% else %}
+        <p>Neste momento não tem nenhum item na sua requisição. Pesquise items e adicione-os à sua requisicão.</p>
+        {% endif %}
+
+    </section>
+</main>
+
+
+{% include "footer.html" %}
+
+{% endblock content %}

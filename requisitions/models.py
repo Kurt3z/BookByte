@@ -13,17 +13,18 @@ class Requisition(models.Model):
         Reader, on_delete=models.SET_NULL, null=True, blank=True)
     contents = models.ManyToManyField(Content)
     is_complete = models.BooleanField(default=False, null=True, blank=False)
+    is_delivered = models.BooleanField(default=False, null=True, blank=False)
     date_created = models.DateTimeField(
-        auto_now=False, auto_now_add=True, editable=False)
+        auto_now=False, auto_now_add=False, editable=False, null=True, blank=True)
     return_date = models.DateTimeField(
-        auto_now=False, auto_now_add=False, editable=False)
+        auto_now=False, auto_now_add=False, editable=False, null=True, blank=True)
 
     def __str__(self):
         return str(self.id)
 
-    def save(self, *args, **kwargs):
-        if not self.date_created:
+    def submit_requisition(self):
+        if not self.is_complete:
+            self.is_complete = True
             self.date_created = timezone.now()
-
-        self.return_date = self.date_created + timedelta(days=30)
-        super().save(*args, **kwargs)
+            self.return_date = self.date_created + timedelta(days=30)
+            self.save()

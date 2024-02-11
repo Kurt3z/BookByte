@@ -108,10 +108,17 @@ a {
 }
 
 #btn-basket {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
+  font-family: 'Merriweather', serif;
+  font-size: 14px;
+  padding: 8px 12px;
+  background-color: #0c8599;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+#btn-basket:hover {
+  background-color: #15aabf;
 }
 
 /*  -----  */
@@ -163,6 +170,28 @@ nav .accounts {
   display: flex;
   align-items: center;
   gap: 40px;
+}
+
+nav .accounts .requisition-icon {
+  position: relative;
+}
+
+nav .accounts .requisition-icon .requisition-total {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: 25px;
+  right: -4px;
+  background-color: #e03131;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav .accounts .requisition-icon .requisition-total span {
+  font-size: 10px;
 }
 
 nav .accounts .profile-picture-box img {

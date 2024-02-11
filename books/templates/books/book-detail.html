@@ -56,7 +56,7 @@
             </li>
         </ul>
         <a href="#">
-            <a href="#" class="btn btn--medium" id="btn-basket"><span>Adicionar</span></a>
+            <button data-content={{book.id}} data-action="add" class="btn btn--medium update-cart" id="btn-basket">Adicionar</button>
         </a>
 
         {% for author in book.author.all %}

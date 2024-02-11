@@ -1,5 +1,7 @@
 'use strict';
 
+// Responsive Menu
+
 const btnMenu = document.querySelector('#hamburger-icon');
 const btnCloseMenu = document.querySelector('#close-mobile-nav');
 const responsiveMenu = document.querySelector('.mobile-nav');

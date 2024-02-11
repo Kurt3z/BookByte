@@ -1,0 +1,93 @@
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 300px;
+  margin-bottom: 90px;
+}
+
+.cart {
+  /* height: 500px; */
+  width: 60%;
+  padding: 32px;
+  margin-bottom: 48px;
+  border-radius: 20px;
+}
+
+.cart h2 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.cart > p {
+  text-align: center;
+}
+
+.cart ul {
+  list-style: none;
+}
+
+.cart ul li {
+  margin-bottom: 48px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.cart ul li .text {
+  flex: 1 0 90%;
+}
+
+.cart ul li .text h3 {
+  margin-bottom: 16px;
+  color: #0c8599;
+}
+
+.cart ul li .cover-div {
+  flex: 0 0 10%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cart ul li .cover-div img {
+  max-width: 100%;
+  border: 1px solid #0c8599;
+  margin-bottom: 8px;
+}
+
+.cart div:last-of-type {
+  width: 100%;
+  text-align: center;
+}
+
+.cart ul li .cover-div button {
+  padding: 4px 8px;
+  background-color: #e03131;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+}
+
+.cart ul li .cover-div button:hover {
+  background-color: #fa5252;
+}
+
+.cart div form button {
+  font-family: 'Merriweather', serif;
+  background-color: rgb(12, 133, 153);
+  color: #f1f3f5;
+  border: none;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+  max-width: fit-content;
+  cursor: pointer;
+}

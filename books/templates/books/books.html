@@ -45,8 +45,8 @@
                   <img src="{{book.language.flag.url}}" alt="" class="flag" />
                 </li>
               </ul>
-              <a href="#" class="btn btn--small">Adicionar</a>
             </a>
+            <button data-content={{book.id}} data-action="add" class="btn btn--small update-cart">Adicionar</button>
         </div>
         {% endfor %}
     </ul>

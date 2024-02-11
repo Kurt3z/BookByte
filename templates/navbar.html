@@ -12,6 +12,17 @@
 
     {% if request.user.is_authenticated %}
     <div class="accounts">
+      {% if user.reader %}
+      <div class="requisition-icon">
+        <a href="{% url "requisition-cart" %}">
+          <img src="{% static "icons/requisition.svg" %}" alt="">
+          <div class="requisition-total">
+            <span id="navbar-item-count" data-requisition-item-count-url="{% url 'get_requisition_item_count' %}"></span>
+          </div>
+        </a>
+      </div>
+      {% endif %}
+
       <div class="profile-picture-box">
         <a href="{% url "profile" %}">
           <img src="{{request.user.profile_image.url}}" alt="">
