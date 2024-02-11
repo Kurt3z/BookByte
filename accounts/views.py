@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 
 from .models import Contact, Reader, Librarian
+from requisitions.models import Requisition
 from .forms import ContactForm, ProfileEditForm
 
 
@@ -103,7 +104,15 @@ def registerReader(request):
 
 @login_required(login_url="login")
 def profile(request):
-    return render(request, "accounts/user-profile.html")
+    user = request.user
+    requisitions = Requisition.objects.filter(
+        reader=user.reader, is_complete=True)
+
+    context = {
+        "requisitions": requisitions
+    }
+
+    return render(request, "accounts/user-profile.html", context)
 
 
 @login_required(login_url="login")

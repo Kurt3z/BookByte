@@ -19,6 +19,9 @@ class Requisition(models.Model):
     return_date = models.DateTimeField(
         auto_now=False, auto_now_add=False, editable=False, null=True, blank=True)
 
+    class Meta:
+        ordering = ["-date_created"]
+
     def __str__(self):
         return str(self.id)
 

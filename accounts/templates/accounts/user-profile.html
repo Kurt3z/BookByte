@@ -51,7 +51,24 @@
         </ul>
         <a href="{% url "edit-profile" %}" id="edit">Editar Perfil</a>
     </section>
-    <section class="col1--row2-span"></section>
+    <section class="col1--row2-span">
+        <h2>As suas requisições</h2>
+
+        <ul class="requisitions">
+            {% for requisition in requisitions %}
+            <li>
+                <p>ID: <span><a href="#">{{ requisition.id }}</a></span></p>
+                <p>Data: <span>{{ requisition.date_created|date:"d F Y" }}</span></p>
+                <p>Data Entrega: <span>{{ requisition.return_date|date:"d F Y" }}</span></p>
+                {% if requisition.is_delivered %}
+                <p>Entregue: <span>✅</span></p>
+                {% else %}
+                <p>Entregue: <span>❌</span></p>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
 </main>
 
 
