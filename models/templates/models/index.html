@@ -1,0 +1,162 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block title %}Book Byte{% endblock title %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "models/index.css" %}">
+{% endblock styles %}
+
+
+{% block content %}
+
+<header>
+    {% include "navbar.html" %}
+    <!-- HERO -->
+
+    <section class="hero">
+        <div class="hero--text">
+          <h2>Requisita a tua Próxima Aventura!</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi maiores ratione odit nisi incidunt eum
+            ipsa sunt odio, sequi adipisci autem exercitationem dolore doloremque.
+          </p>
+          <a href="#" class="btn btn--big">Explorar</a>
+        </div>
+        <div class="hero--content">
+            <img src="{% static "images/background.jpg" %}" alt="">
+        </div>
+    </section>
+
+    <!-- ////// -->
+</header>
+
+<main>
+    <!-- FEATURES -->
+    <section class="features">
+        <div>
+          <div id="icon-box">
+            <img src="{% static "icons/calendar-blank.svg" %}" alt="" />
+          </div>
+          <h2>Eventos</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis numquam quod quae non necessitatibus!
+            Delectus vel, assumenda explicabo nihil nam, eos nulla dolore tempore excepturi, quisquam quo consequuntur.
+            Velit, autem!
+          </p>
+        </div>
+
+        <div>
+          <div id="icon-box">
+            <img src="{% static "icons/books.svg" %}" alt="" />
+          </div>
+          <h2>Catálogo</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis numquam quod quae non necessitatibus!
+            Delectus vel, assumenda explicabo nihil nam, eos nulla dolore tempore excepturi, quisquam quo consequuntur.
+            Velit, autem!
+          </p>
+        </div>
+
+        <div>
+          <div id="icon-box">
+            <img src="{% static "icons/file.svg" %}" alt="" />
+          </div>
+          <h2>Requisições</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis numquam quod quae non necessitatibus!
+            Delectus vel, assumenda explicabo nihil nam, eos nulla dolore tempore excepturi, quisquam quo consequuntur.
+            Velit, autem!
+          </p>
+        </div>
+    </section>
+    <!-- ////// -->
+
+    <!-- RECENT CONTENT -->
+    <h2>Adicionados Recentemente</h2>
+    <section>
+        <div class="header-recents">
+            <h3>Livros</h3>
+            <a href="{% url "books" %}" class="see-all">Ver todos</a>
+        </div>
+        <ul class="recents recent-books">
+            {% for book in books %}
+            <li>
+                <a href="{% url "book" book.slug%}"><img src="{{book.cover.url}}" alt="{{book.title}} Capa" /></a>
+                <div class="content-description">
+                    <p><i class="ph ph-book"></i><strong>{{book.title}}</strong></p>
+                    {% for author in book.author.all %}
+                    <p><i class="ph ph-user"></i>{{author.first_name}} {{author.last_name}}</p>
+                    {% endfor %}
+                    <p><i class="ph ph-file"></i>{{book.pages}} páginas</p>
+                    <p><i class="ph ph-buildings"></i>{{book.publisher}}</p>
+                </div>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section>
+        <div class="header-recents">
+            <h3>Filmes</h3>
+            <a href="#" class="see-all">Ver todos</a>
+        </div>
+    </section>
+
+    <!-- EVENTS -->
+    <section class="events">
+    <div>
+        <img src="{% static "images/image1.jpg" %}" alt="Senhora vendo livros em estanto" />
+    </div>
+    <div class="events-text">
+        <div class="box">
+        <h2>Eventos</h2>
+        <p>
+            Um dos objetivos da Book Byte é promover e cultivar o gosto pela cultura. Assim sendo, temos o gosto de
+            promover todo o tipo de eventos de modo a incentivar a socialização e juntar pessoas com gostos
+            semelhantes. Desde clubes de leitura, sessões de cinema, leituras conjuntas, apresentações literárias de
+            leitores amadores, concertos musicais, etc. Temos todo o gosto em recebê-lo nos nossos espaços!
+        </p>
+        <form action="#" method="post">
+            <input type="email" id="email" name="email" required placeholder="Recebe as novidades no teu e-mail..." />
+            <button type="submit" class="btn--submit">Enviar</button>
+        </form>
+        </div>
+    </div>
+    </section>
+    <!-- ////// -->
+
+    <!-- AUTHORS -->
+    <section class="authors">
+        <div class="header-recents">
+            <h2>Fica a conhecer</h2>
+        </div>
+
+        <div class="authors-grid">
+            {% for author in authors %}
+            <div class="author-detail">
+                <div class="author-detail--text">
+                    <p class="heading">Nome:</p>
+                    <h3>{{author}}</h3>
+                    <p class="heading">Sobre o autor:</p>
+                    <p>
+                        {{author.biography|truncatechars:"250"}}
+                    </p>
+                    <a href="{% url "author" author.slug %}" class="btn--author">Descobrir mais</a>
+                </div>
+                <img src="{{author.picture.url}}" alt="" />
+            </div>
+            
+            {% endfor %}
+        </div>
+    </section>
+
+</main>
+
+
+
+{% include "footer.html" %}
+
+{% endblock content %}
+
