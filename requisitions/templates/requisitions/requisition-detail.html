@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block title %}Detalhes da Requisição{% endblock title %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "requisitions/requisition-detail.css" %}">
+{% endblock styles %}
+
+
+{% block content %}
+
+{% include "navbar.html" %}
+
+<main>
+    <h2>{{requisition.id}}</h2>
+</main>
+
+
+{% include "footer.html" %}
+
+{% endblock content %}

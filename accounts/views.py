@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
 
 from .models import Contact, Reader, Librarian
@@ -105,14 +106,22 @@ def registerReader(request):
 @login_required(login_url="login")
 def profile(request):
     user = request.user
-    requisitions = Requisition.objects.filter(
-        reader=user.reader, is_complete=True)
 
-    context = {
-        "requisitions": requisitions
-    }
+    try:
+        if request.user.reader:
+            requisitions = Requisition.objects.filter(
+                reader=user.reader, is_complete=True)
 
-    return render(request, "accounts/user-profile.html", context)
+            context = {
+                "requisitions": requisitions
+            }
+
+            return render(request, "accounts/user-profile.html", context)
+
+    except ObjectDoesNotExist:
+        pass
+
+    return render(request, "accounts/user-profile.html")
 
 
 @login_required(login_url="login")

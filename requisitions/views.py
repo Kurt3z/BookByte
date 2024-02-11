@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.http import JsonResponse, HttpResponse
 import json
 from django.contrib.auth.decorators import login_required, user_passes_test
@@ -13,6 +14,15 @@ def is_reader(user):
 
 def requisitions(request):
     pass
+
+
+def requisition(request, pk):
+    requisition = Requisition.objects.get(id=pk)
+    context = {
+        "requisition": requisition
+    }
+
+    return render(request, "requisitions/requisition-detail.html", context)
 
 
 @login_required(login_url="login")
@@ -40,6 +50,11 @@ def updateContent(request):
     print("Action: ", action)
     print("contentId: ", contentId)
 
+    content = Content.objects.get(id=contentId)
+
+    if content.quantity == 0:
+        return JsonResponse({"error": "Item fora de stock."}, status=400)
+
     reader = request.user.reader
     content = Content.objects.get(id=contentId)
     requisition, created = Requisition.objects.get_or_create(
@@ -60,7 +75,13 @@ def submitRequisition(request, pk):
     requisition = Requisition.objects.get(id=pk)
     requisition.submit_requisition()
 
-    return redirect("profile")
+    for content in requisition.contents.all():
+        content.quantity -= 1
+        content.save()
+
+    target_url = reverse("requisition", kwargs={"pk": pk})
+
+    return redirect(target_url)
 
 
 def getRequisitionItemCount(request):
