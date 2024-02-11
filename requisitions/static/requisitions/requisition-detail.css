@@ -1,0 +1,58 @@
+main {
+  width: 80%;
+  min-height: 500px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+main p {
+  color: #0c8599;
+  font-weight: 500;
+}
+
+main span {
+  color: #343a40;
+}
+
+main div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+main div h2 {
+  font-size: 44px;
+}
+
+main section h3 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+main section ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+main section ul li img {
+  width: 200px;
+  height: 300px;
+  margin-bottom: 8px;
+}
+
+main section ul li h4 {
+  text-align: center;
+}
+
+main section ul li h4 a:link,
+main section ul li h4 a:visited {
+  color: #343a40;
+}
+
+main section ul li h4 a:hover,
+main section ul li h4 a:active {
+  color: #0c8599;
+}

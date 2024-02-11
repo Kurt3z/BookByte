@@ -13,7 +13,32 @@
 {% include "navbar.html" %}
 
 <main>
-    <h2>{{requisition.id}}</h2>
+    <div>
+        <h2>Requisição</h2>
+        
+        {% if is_delivered %}
+        <p>Estado: <span>Entregue ✅</span></p>
+
+        {% else %}
+        <p>Estado: <span>Não entregue ❌ Tem até {{requisition.return_date}} para devolver os conteúdos.</span></p>
+        
+        {% endif %}
+
+    </div>
+
+    <section>
+    <h3>Conteúdos</h3>
+    <ul>
+        {% for content in requisition.contents.all %}
+        <li>
+            <img src="{{content.cover.url}}" alt="">
+            <h4><a href="{% url "book" content.slug %}">{{content.title}}</a></h4>
+        </li>
+        
+        {% endfor %}
+    </ul>
+
+    </section>
 </main>
 
 
