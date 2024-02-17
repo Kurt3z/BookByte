@@ -12,7 +12,7 @@
 
     {% if request.user.is_authenticated %}
     <div class="accounts">
-      {% if user.reader %}
+      {% if request.user.reader %}
       <div class="requisition-icon">
         <a href="{% url "requisition-cart" %}">
           <img src="{% static "icons/requisition.svg" %}" alt="">
