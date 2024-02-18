@@ -129,6 +129,12 @@ def editProfile(request):
     user = request.user
     form = ProfileEditForm(instance=user)
 
+    if request.method == "POST":
+        form = ProfileEditForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect("profile")
+
     context = {
         "form": form
     }
