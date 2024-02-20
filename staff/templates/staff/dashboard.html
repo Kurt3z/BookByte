@@ -81,7 +81,7 @@
 
             {% for requisition in requisitions %}
             <tr>
-                <td>{{requisition.id|truncatechars:"20"}}</td>
+                <td><a href="{% url "requisition" requisition.id%}">{{requisition.id|truncatechars:"20"}}</a></td>
                 <td>{{requisition.date_created|date:"d F Y"}}</td>
                 <td>{{requisition.return_date|date:"d F Y"}}</td>
                 <td>
