@@ -17,8 +17,15 @@ class BookFilter(django_filters.FilterSet):
         model = Book
         fields = ["title_isbn_author",
                   "genre", "publisher", "language"]
+
         exclude = ["id", "created", "cover",
                    "publication_date", "quantity", "summary", "pages", "title", "isbn", "slug", "author"]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.form.fields['genre'].label = "Género"
+        self.form.fields['publisher'].label = "Editora"
+        self.form.fields['language'].label = "Idioma"
 
     def fitler_title_isbn_author(self, queryset, name, value):
         keywords = value.split()

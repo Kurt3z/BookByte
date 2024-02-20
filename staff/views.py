@@ -319,11 +319,15 @@ def deleteGenre(request, pk):
     return render(request, "staff/delete.html", context)
 
 
+@login_required(login_url="login")
+@user_passes_test(is_librarian)
 def deliverRequisition(request, pk):
     requisition = Requisition.objects.get(id=pk)
+    librarian = request.user.librarian
 
     if request.method == "POST":
         requisition.is_delivered = True
+        requisition.librarian = librarian
 
         for content in requisition.contents.all():
             content.quantity += 1

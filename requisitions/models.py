@@ -3,14 +3,16 @@ from django.db import models
 from django.utils import timezone
 from datetime import timedelta
 
-from accounts.models import Reader
+from accounts.models import Reader, Librarian
 from models.models import Content
 
 
 class Requisition(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     reader = models.ForeignKey(
-        Reader, on_delete=models.SET_NULL, null=True, blank=True)
+        Reader, on_delete=models.PROTECT, null=True, blank=True)
+    librarian = models.ForeignKey(
+        Librarian, on_delete=models.PROTECT, null=True, blank=True)
     contents = models.ManyToManyField(Content)
     is_complete = models.BooleanField(default=False, null=True, blank=False)
     is_delivered = models.BooleanField(default=False, null=True, blank=False)

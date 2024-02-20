@@ -56,7 +56,7 @@ def updateContent(request):
         return JsonResponse({"error": "Item fora de stock."}, status=400)
 
     reader = request.user.reader
-    content = Content.objects.get(id=contentId)
+
     requisition, created = Requisition.objects.get_or_create(
         reader=reader, is_complete=False)
 

@@ -21,6 +21,11 @@ class ProfileEditForm(forms.ModelForm):
 
 
 class ContactForm(UserCreationForm):
+    class Meta:
+        model = Contact
+        fields = ["username", "password1", "password2",
+                  "email", "first_name", "last_name", "birthdate"]
+
     username = forms.CharField(
         label="Username",
         widget=forms.TextInput(
@@ -62,11 +67,6 @@ class ContactForm(UserCreationForm):
         label="Birthdate",
         widget=forms.DateInput(format='%d / %m / %Y', attrs={'type': 'date'})
     )
-
-    class Meta:
-        model = Contact
-        fields = ["username", "password1", "password2",
-                  "email", "first_name", "last_name", "birthdate"]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

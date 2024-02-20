@@ -92,17 +92,20 @@
                     <p><i class="ph ph-buildings"></i>{{book.publisher}}</p>
                 </div>
                 </a>
+                <a href="#" class="btn btn--small" id="btn-basket" data-content={{book.id}} data-action="add"><span>Adicionar</span><i class="ph ph-basket"></i></a>
             </li>
             {% endfor %}
         </ul>
     </section>
 
+    {% if movies %}
     <section>
         <div class="header-recents">
             <h3>Filmes</h3>
             <a href="#" class="see-all">Ver todos</a>
         </div>
     </section>
+    {% endif %}
 
     <!-- EVENTS -->
     <section class="events">

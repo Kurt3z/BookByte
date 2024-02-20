@@ -11,6 +11,10 @@ def books(request):
     books = myFilter.qs
     custom_range, books = paginateBooks(request, books, 16)
 
+    myFilter.form.fields['genre'].label = "Género"
+    myFilter.form.fields['publisher'].label = "Editora"
+    myFilter.form.fields['language'].label = "Idioma"
+
     context = {
         "books": books,
         "myFilter": myFilter,
