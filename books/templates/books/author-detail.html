@@ -32,7 +32,7 @@
             <li>
               <img src="{% static "icons/check-circle-24px-teal.svg" %}" alt="" />
               <span>Nacionalidade: </span>
-              <img src="{{author.country}}" alt="" id="flag" />
+              <img src="{{author.country.flag.url}}" alt="" id="flag" />
             </li>
 
             {% if author.personal_website %}
