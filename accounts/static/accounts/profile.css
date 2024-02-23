@@ -105,11 +105,13 @@ main .col1--row2-span .requisitions li {
   display: flex;
   justify-content: space-between;
   margin-bottom: 16px;
+  gap: 24px;
 }
 
 main .col1--row2-span .requisitions li p {
   color: #0c8599;
   font-weight: 700;
+  width: 100%;
 }
 
 main .col1--row2-span .requisitions li p span {

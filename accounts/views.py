@@ -105,23 +105,22 @@ def registerReader(request):
 
 @login_required(login_url="login")
 def profile(request):
-    user = request.user
+    requisitions = None
 
-    try:
-        if request.user.reader:
-            requisitions = Requisition.objects.filter(
-                reader=user.reader, is_complete=True)
+    if hasattr(request.user, 'reader') and request.user.reader:
+        requisitions = Requisition.objects.filter(
+            reader=request.user.reader, is_complete=True
+        )
 
-            context = {
-                "requisitions": requisitions
-            }
+    elif hasattr(request.user, 'librarian') and request.user.librarian:
+        requisitions = Requisition.objects.filter(
+            librarian=request.user.librarian, is_delivered=True
+        )
+    context = {
+        "requisitions": requisitions
+    }
 
-            return render(request, "accounts/user-profile.html", context)
-
-    except ObjectDoesNotExist:
-        pass
-
-    return render(request, "accounts/user-profile.html")
+    return render(request, "accounts/user-profile.html", context)
 
 
 @login_required(login_url="login")

@@ -52,8 +52,6 @@
         <a href="{% url "edit-profile" %}" id="edit">Editar Perfil</a>
     </section>
     <section class="col1--row2-span">
-
-        {% if request.user.reader %}
         <h2>As suas requisições</h2>
 
         <ul class="requisitions">
@@ -62,16 +60,28 @@
                 <p>ID: <span><a href="{% url "requisition" requisition.id %}">{{ requisition.id }}</a></span></p>
                 <p>Data: <span>{{ requisition.date_created|date:"d F Y" }}</span></p>
                 <p>Data Entrega: <span>{{ requisition.return_date|date:"d F Y" }}</span></p>
-                {% if requisition.is_delivered %}
-                <p>Entregue: <span>✅</span></p>
-                {% else %}
-                <p>Entregue: <span>❌</span></p>
+
+                {% if request.user.reader %}
+                    {% if requisition.is_delivered %}
+                    <p>Bibliotecário: <span><a href="{% url "public-profile" requisition.librarian.user.id %}">{{requisition.librarian}}</span></a></p>
+                    <p>Entregue: <span>✅</span></p>
+                    {% else %}
+                    <p>Bibliotecário: </p>
+                    <p>Entregue: <span>❌</span></p>
+                    {% endif %}
+                
+                {% elif request.user.librarian %}
+                    {% if requisition.is_delivered %}
+                    <p>Leitor: <span><a href="{% url "public-profile" requisition.reader.user.id %}">{{requisition.reader}}</span></a></p>
+                    <p>Entregue: <span>✅</span></p>
+                    {% else %}
+                    <p>Leitor: </p>
+                    <p>Entregue: <span>❌</span></p>
+                    {% endif %}
                 {% endif %}
             </li>
             {% endfor %}
         </ul>
-        {% endif %}
-        
     </section>
 </main>
 

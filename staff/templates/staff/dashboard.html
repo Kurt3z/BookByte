@@ -19,7 +19,9 @@
 
     <div class="account-box">
         <span>Olá, {{request.user.first_name}}!</span>
-        <img src="{{request.user.profile_image.url}}" alt="">
+        <a href="{% url "profile" %}">
+            <img src="{{request.user.profile_image.url}}" alt="">
+        </a>
     </div>
 </header>
 

@@ -4,10 +4,16 @@
     <h1><a href="{% url "index" %}" class="logo"><span>B</span>ook <span>B</span>yte</a></h1>
 
     <ul class="navigation">
+      {% if request.user.librarian %}
+      <li><a href="{% url "dashboard" %}">Dashboard</a></li>
+
+      {% else %}
       <li><a href="{% url "books" %}">Livros</a></li>
       <li>Filmes</li>
       <li>Regras</li>
       <li>Contactos</li>
+
+      {% endif %}
     </ul>
 
     {% if request.user.is_authenticated %}
@@ -59,10 +65,17 @@
         <li>
           <h1><a href="{% url "index" %}" class="logo"><span>B</span>ook <span>B</span>yte</a></h1>
         </li>
+
+        {% if user.librarian %}
+        <li><a href="{% url "dashboard" %}">Dashboard</a></li>
+
+        {% else %}
         <li><a href="{% url "books" %}">Livros</a></li>
         <li>Filmes</li>
         <li>Regras</li>
         <li>Contactos</li>
+
+        {% endif %}
         {% if request.user.is_authenticated %} 
 
         {% else %}
