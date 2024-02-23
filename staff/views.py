@@ -24,10 +24,15 @@ def dashboard(request):
     open_requisitions = Requisition.objects.filter(
         is_delivered=False, is_complete=True)
 
+    completed_requisitions = Requisition.objects.filter(
+        is_delivered=True
+    )
+
     context = {
         "total_books": total_books,
         "total_movies": total_movies,
-        "requisitions": open_requisitions
+        "requisitions": open_requisitions,
+        "completed": completed_requisitions
     }
 
     return render(request, "staff/dashboard.html", context)
