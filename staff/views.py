@@ -342,3 +342,26 @@ def deliverRequisition(request, pk):
         requisition.save()
 
         return redirect("dashboard")
+
+
+@login_required(login_url="login")
+@user_passes_test(is_librarian)
+def booksLoan(request):
+    open_requisitions = Requisition.objects.filter(
+        is_delivered=False, is_complete=True)
+
+    loaned_books = []
+
+    for requisition in open_requisitions:
+        contents = requisition.contents.all()
+
+        reader = requisition.reader
+
+        for content in contents:
+            loaned_books.append((content, reader))
+
+    context = {
+        "books": loaned_books
+    }
+
+    return render(request, "staff/loaned-books.html", context)

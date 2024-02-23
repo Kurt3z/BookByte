@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block title %} Livros Emprestados {% endblock title %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "staff/navigation.css" %}">
+<link rel="stylesheet" href="{% static "staff/loaned-books.css" %}">
+{% endblock styles %}
+
+{% block content %}
+{% include "staff/navigation.html" %}
+
+<main>
+    <ul>
+        {% for book, reader in books %}
+        <li>
+            <img src="{{book.cover.url}}" alt="">
+            <p><a href="{% url "book" book.slug%}">{{book.title}}</a></p>
+            <p>Leitor: <a href="{% url "public-profile" reader.user.id%}">{{reader}}</a></p>
+        </li>
+        {% endfor %}
+    </ul>
+</main>
+
+
+
+
+
+
+{% endblock content %}

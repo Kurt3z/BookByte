@@ -1,0 +1,26 @@
+main {
+  width: 60%;
+  margin: 0 auto;
+}
+
+ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 32px;
+}
+
+ul li {
+  text-align: center;
+}
+
+ul li img {
+  height: 200px;
+  width: 125px;
+  border: 1px solid #0c8599;
+  margin-bottom: 8px;
+}
+
+ul li p:first-of-type {
+  margin-bottom: 8px;
+}

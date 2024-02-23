@@ -55,7 +55,7 @@
             <img src="{% static "icons/book-bold-44px-teal.svg" %}" alt="">
         </div>
         <h3>Livros Requisitados</h3>
-        <p>{{total_books}}</p>
+        <p><a href="{% url "books-loan" %}">{{total_books}}</a></p>
     </div>
     <div class="card">
         <div class="icon-box">
