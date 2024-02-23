@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.db.models import Count
 
 from books.models import Book, Author
 from books.forms import BookForm, AuthorForm
@@ -18,9 +19,6 @@ def is_librarian(user):
 @login_required(login_url="login")
 @user_passes_test(is_librarian)
 def dashboard(request):
-    # total_books = Book.objects.count()
-    total_books = 0
-    total_movies = 0
     open_requisitions = Requisition.objects.filter(
         is_delivered=False, is_complete=True)
 
@@ -28,9 +26,12 @@ def dashboard(request):
         is_delivered=True
     )
 
+    open_requisitions_books_count = open_requisitions.aggregate(
+        total_books=Count('contents'))
+    total_books = open_requisitions_books_count['total_books']
+
     context = {
         "total_books": total_books,
-        "total_movies": total_movies,
         "requisitions": open_requisitions,
         "completed": completed_requisitions
     }
