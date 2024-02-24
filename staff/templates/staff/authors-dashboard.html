@@ -44,9 +44,13 @@
         </tr>
         {% for author in authors %}
         <tr>
+            {% if author.picture %}
             <td>
                 <img src="{{ author.picture.url }}" alt="">
             </td>
+            {% else %}
+            <td></td>
+            {% endif %}
             <td>{{author}}</td>
             <td>{{author.birthdate|date:"F j, Y"}}</td>
             <td>{{author.country}}</td>

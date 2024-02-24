@@ -15,7 +15,9 @@
 
 <main>
     <section class="column--1">
+        {% if author.picture %}
         <img src="{{author.picture.url}}" alt="{{author}} Foto" />
+        {% endif %}
         <div>
           <p>Data de Nascimento</p>
           <p id="publication-date">{{ author.birthdate|date:"d F Y"}}</p>
