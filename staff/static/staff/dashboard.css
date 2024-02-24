@@ -113,8 +113,8 @@ body {
   gap: 8px;
 }
 
-.card:nth-child(1) > .icon-box,
-.card:nth-child(2) > .icon-box {
+.card:nth-child(1)>.icon-box,
+.card:nth-child(2)>.icon-box {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -170,14 +170,14 @@ body {
   margin-bottom: 32px;
 }
 
-body > main > div:nth-child(4) > p:nth-child(2),
-body > main > div:nth-child(4) > p:nth-child(5) {
+#open,
+#finished {
   font-weight: 700;
   font-size: 18px;
   color: #343a40;
 }
 
-body > main > div:nth-child(4) > p:nth-child(5) {
+body>main>div:nth-child(4)>p:nth-child(5) {
   margin-top: 32px;
 }
 

@@ -6,6 +6,7 @@
     <ul class="navigation">
       {% if request.user.librarian %}
       <li><a href="{% url "dashboard" %}">Dashboard</a></li>
+      <li><a href="{% url "books" %}">Catálogo</a></li>
 
       {% else %}
       <li><a href="{% url "books" %}">Livros</a></li>
