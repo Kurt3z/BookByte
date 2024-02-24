@@ -84,7 +84,7 @@
             <li>
                 <a href="{% url "book" book.slug%}"><img src="{{book.cover.url}}" alt="{{book.title}} Capa" /></a>
                 <div class="content-description">
-                    <p><i class="ph ph-book"></i><strong>{{book.title}}</strong></p>
+                    <p><i class="ph ph-book"></i><strong>{{book.title|truncatechars:"15"}}</strong></p>
                     {% for author in book.author.all %}
                     <p><i class="ph ph-user"></i>{{author.first_name}} {{author.last_name}}</p>
                     {% endfor %}

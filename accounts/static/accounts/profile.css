@@ -1,5 +1,5 @@
 main {
-  width: 75%;
+  width: 95%;
   min-height: 400px;
   margin: 0 auto;
   margin-bottom: 48px;
@@ -11,7 +11,7 @@ main {
   gap: 32px;
 }
 
-main > * {
+main>* {
   background-color: #e9ecef92;
   border-radius: 20px;
   border: 3px solid #0c8599;

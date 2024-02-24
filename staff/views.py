@@ -357,8 +357,10 @@ def booksLoan(request):
 
         reader = requisition.reader
 
+        requisition = requisition.id
+
         for content in contents:
-            loaned_books.append((content, reader))
+            loaned_books.append((content, reader, requisition))
 
     context = {
         "books": loaned_books

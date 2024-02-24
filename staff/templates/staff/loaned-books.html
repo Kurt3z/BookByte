@@ -13,11 +13,12 @@
 
 <main>
     <ul>
-        {% for book, reader in books %}
+        {% for book, reader, requisition in books %}
         <li>
             <img src="{{book.cover.url}}" alt="">
+            <p><a href="{% url "requisition" requisition %}">{{requisition|truncatechars:"20"}}</a></p>
             <p><a href="{% url "book" book.slug%}">{{book.title}}</a></p>
-            <p>Leitor: <a href="{% url "public-profile" reader.user.id%}">{{reader}}</a></p>
+            <p>Leitor: <a href="{% url "public-profile" reader.user.id %}">{{reader}}</a></p>
         </li>
         {% endfor %}
     </ul>
