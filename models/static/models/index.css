@@ -183,12 +183,12 @@ main section h3 {
     gap: 64px;
   }
 
-  .features > div {
+  .features>div {
     padding: 32px;
     width: 100%;
   }
 
-  .features > div p {
+  .features>div p {
     width: 100%;
   }
 }
@@ -259,13 +259,27 @@ main section:nth-of-type(3) {
   color: #15aabf;
 }
 
+
+.btn {
+  font-family: 'Merriweather', serif;
+  background-color: #0c8599;
+  color: #f1f3f5;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+  max-width: fit-content;
+  border: none;
+  cursor: pointer;
+}
+
 @media (max-width: 640px) {
-  body > main > h2 {
+  body>main>h2 {
     padding: 16px;
   }
 
-  body > main > section:nth-child(3) > h3,
-  body > main > section:nth-child(4) > h3 {
+  body>main>section:nth-child(3)>h3,
+  body>main>section:nth-child(4)>h3 {
     padding: 16px;
   }
 
@@ -285,12 +299,12 @@ main section:nth-of-type(3) {
 }
 
 @media ((min-width: 768px) and (max-width: 1024px)) {
-  body > main > h2 {
+  body>main>h2 {
     padding: 0 32px;
   }
 
-  body > main > section:nth-child(3) > h3,
-  body > main > section:nth-child(4) > h3 {
+  body>main>section:nth-child(3)>h3,
+  body>main>section:nth-child(4)>h3 {
     padding: 0 32px;
   }
 
@@ -304,7 +318,7 @@ main section:nth-of-type(3) {
     row-gap: 32px;
   }
 
-  body > main > section:nth-child(3) > ul {
+  body>main>section:nth-child(3)>ul {
     margin-bottom: 32px;
   }
 
@@ -328,7 +342,7 @@ main section:nth-of-type(3) {
   grid-template-columns: repeat(2, 1fr);
 }
 
-.events > div {
+.events>div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -414,7 +428,7 @@ main section:nth-of-type(3) {
     width: 90vw;
   }
 
-  body > main > section.events > div:nth-child(1) > img {
+  body>main>section.events>div:nth-child(1)>img {
     max-width: 90%;
   }
 }
@@ -427,7 +441,7 @@ main section:nth-of-type(3) {
     flex-direction: column;
   }
 
-  .events > div {
+  .events>div {
     order: 1;
   }
 
@@ -435,7 +449,7 @@ main section:nth-of-type(3) {
     order: 0;
   }
 
-  body > main > section.events > div:nth-child(1) > img {
+  body>main>section.events>div:nth-child(1)>img {
     margin-bottom: 32px;
   }
 
@@ -448,7 +462,7 @@ main section:nth-of-type(3) {
 /*   AUTHORS    */
 /* ------------ */
 
-body > main > section.authors > div.header-recents > h2 {
+body>main>section.authors>div.header-recents>h2 {
   font-size: 30px;
   margin-bottom: 0;
 }
@@ -526,15 +540,15 @@ body > main > section.authors > div.header-recents > h2 {
     flex-direction: column;
   }
 
-  body > main > section.authors > div > div:nth-child(1) > img,
-  body > main > section.authors > div > div:nth-child(2) > img {
+  body>main>section.authors>div>div:nth-child(1)>img,
+  body>main>section.authors>div>div:nth-child(2)>img {
     top: 0;
     margin-top: 16px;
     width: fit-content;
     align-self: center;
   }
 
-  body > main > section.authors > h2 {
+  body>main>section.authors>h2 {
     padding: 0 32px;
   }
 
